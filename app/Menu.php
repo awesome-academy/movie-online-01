@@ -12,4 +12,9 @@ class Menu extends Model
     {
         return $this->belongsToMany('App\Film');
     }
+
+    public function childMenu()
+    {
+    	return $this->hasMany('App\Menu', 'parent_id');
+    }
 }

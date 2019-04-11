@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Film;
+use App\User;
+use App\Episode;
+use App\Menu;
 
 class HomeController extends Controller
 {
@@ -14,7 +17,17 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('client.homepage');
+        $films = Film::withCount('episodes')->orderBy('created_at', 'DESC')->get();
+        $singleFilm = $films->filter(function ($value) {
+            
+            return $value->episodes_count == 1;
+        })->take(config('setting.take_film.homepage'));
+        $seriesFilm = $films->filter(function ($value) {
+            
+            return $value->episodes_count > 1;
+        })->take(config('setting.take_film.homepage'));
+
+        return view('client.homepage', compact('singleFilm', 'seriesFilm'));
     }
 
     /**
@@ -46,7 +59,9 @@ class HomeController extends Controller
      */
     public function show($id)
     {
-        //
+        $details = Film::findOrFail($id);
+
+        return view('client.detail', compact('details'));
     }
 
     /**
