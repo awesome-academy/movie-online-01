@@ -12,6 +12,8 @@
     <link href="{{ asset('bower_components/mvo1/vendor/datatables/dataTables.bootstrap4.css') }}" rel="stylesheet">
     <!-- Custom styles for this template-->
     <link href="{{ asset('bower_components/mvo1/css/sb-admin.css') }}" rel="stylesheet">
+    {{-- Style custom css --}}
+    <link href="{{ asset('bower_components/mvo1/css/stylecustom.css') }}" rel="stylesheet">
 </head>
 <body id="page-top">
     <!--Header-->

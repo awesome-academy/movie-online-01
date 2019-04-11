@@ -23,5 +23,32 @@ return [
     'page' => 'Pages',
     'action' => 'Action',
     'copyrights' => 'Movies Online 2019',
-    'name_film' => 'Media title goes here'
+    'name_film' => 'Media title goes here',
+    //admin
+    //slidebar
+    'user_ma' => 'User Management',
+    'role_ma' => 'Role Management',
+    'menu_ma' => 'Menu Management',
+    'film_ma' => 'Film Management',
+    'episode_ma' => 'Episode Management',
+    'actor_ma' => 'Actor Management',
+    'actor_film' => 'Actor of Film',
+    'film_upload' => 'Film uploaded by user',
+    'country_ma' => 'Country Management',
+    'comment_ma' => 'Comment Management',
+    //menu management
+    'menu_name' => 'Name',
+    'menu_slug' => 'Slug',
+    'action' => 'Action',
+    'add_menu' => 'Add new menu',
+    'edit' => 'Edit',
+    'delete' => 'Delete',
+    'detail' => 'Detail',
+    'save' => 'Save',
+    'menu' => 'Please enter menu',
+    'pmenu' => 'Parent menu',
+    'detail' => 'Detail',
+    'child_me' => 'Child menu',
+    'parent_me' => 'Parent menu',
+    'category' => 'Category'
 ];
