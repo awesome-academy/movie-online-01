@@ -22,3 +22,35 @@
         </div>  
     </div>
 </nav>
+<nav class="uk-navbar uk-navbar-secondary  uk-hidden-small">
+    <div class="uk-container-center uk-container">
+        <ul class="uk-navbar-nav">
+            {{-- <li class="uk-active"><a href="#">{{ __('label.home') }}</a></li> --}}
+            <li><a href="{{ route('index') }}">{{ __('label.home') }}</a></li>
+            @foreach ($menus as $menu)
+                @if ($menu->childMenu->count() > 0)
+                    <li class="uk-parent" data-uk-dropdown>
+                        <a href="#">{{ $menu->name }}
+                            <i class="uk-icon-angle-down uk-margin-small-left"></i>
+                        </a>
+                        <div class="uk-dropdown uk-dropdown-navbar">
+                            <ul class="uk-nav uk-nav-navbar">
+                                @foreach ($menu->childMenu as $child)
+                                    <li><a href="#">{{ $child->name }}</a></li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    </li>
+                @else
+                    <li><a href="#">{{ $menu->name }}</a></li>
+                @endif              
+            @endforeach
+        </ul>
+        <div class="uk-navbar-flip">
+            <form class="uk-search uk-margin-small-top uk-margin-left uk-hidden-small">
+                <input class="uk-search-field" type="search" placeholder="Search..." autocomplete="off">
+                <div class="uk-dropdown uk-dropdown-flip uk-dropdown-search" aria-expanded="false"></div>
+            </form>
+        </div>
+    </div>
+</nav>
