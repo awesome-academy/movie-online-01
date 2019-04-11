@@ -11,7 +11,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-    	Model::unguard();
         $this->call(UsersTableSeeder::class);
         $this->call(FilmsTableSeeder::class);
         $this->call(Film_MenuTableSeeder::class);
@@ -19,6 +18,5 @@ class DatabaseSeeder extends Seeder
         $this->call(ActorsTableSeeder::class);
         $this->call(Actor_FilmTableSeeder::class);
         $this->call(CommentsTableSeeder::class);
-        Model::reguard();
     }
 }
