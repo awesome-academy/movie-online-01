@@ -7,6 +7,9 @@ use App\Film;
 use App\User;
 use App\Episode;
 use App\Menu;
+use App\Vote;
+use App\Actor;
+use App\Comment;
 
 class HomeController extends Controller
 {
@@ -60,8 +63,21 @@ class HomeController extends Controller
     public function show($id)
     {
         $details = Film::findOrFail($id);
+        $votes = round($details->votes->avg('point'), 1);
+        $actors = $details->actors;
 
-        return view('client.detail', compact('details'));
+        // Get menus of film
+        $genres = $details->menus;
+
+        // Get all film of menu in film details where film_id <> $details->id
+        $filmOfMenu = [];
+        foreach ($genres as $genre) {
+            array_push($filmOfMenu, Menu::find($genre->id)->films->where('id', '<>', $details->id));
+        }
+        $countries = $details->country()->get();
+        $comments = Comment::with('user')->where('film_id', $id)->get();
+
+        return view('client.detail', compact('details', 'votes', 'actors', 'genres', 'countries', 'comments', 'filmOfMenu'));
     }
 
     /**

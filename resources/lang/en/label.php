@@ -50,5 +50,27 @@ return [
     'detail' => 'Detail',
     'child_me' => 'Child menu',
     'parent_me' => 'Parent menu',
-    'category' => 'Category'
+    'category' => 'Category',
+    //details page
+    //description tab
+    'desc' => 'DESCRIPTION',
+    'review' => 'REVIEWS',
+    'trailer' => 'TRAILER',
+    'desc' => 'DESCRIPTION',
+    'watch' => 'Watch Now',
+    'favourite' => 'Add to Favourites',
+    'mins' => 'Mins',
+    'starring' => 'Starring',
+    'genre' => 'Genres',
+    'country' => 'Countries',
+    //review tab
+    'post_review' => 'Post a Review',
+    'please' => 'Please',
+    'login' => 'Log In',
+    'or' => 'or',
+    'sign_up' => 'Sign Up',
+    'to_post' => 'to post reviews quicker.',
+    'type' => 'Type your review here...',
+    'post' => 'Post',
+    'also_like' => 'YOU MIGHT ALSO LIKE',
 ];

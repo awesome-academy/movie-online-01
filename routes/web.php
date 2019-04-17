@@ -13,3 +13,4 @@
 
 Route::get('/', 'HomeController@index')->name('index');
 Route::get('details/{id}', 'HomeController@show')->name('show');
+Route::get('watch/{id}', 'PlayerController@show')->name('player');
