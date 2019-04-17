@@ -21,5 +21,6 @@ class DatabaseSeeder extends Seeder
         $this->call(CommentsTableSeeder::class);
         $this->call(VotesTableSeeder::class);
         $this->call(CountriesTableSeeder::class);
+        $this->call(MenusTableSeeder::class);
     }
 }

@@ -17,4 +17,13 @@ class Menu extends Model
     {
     	return $this->hasMany('App\Menu', 'parent_id');
     }
+
+    public static function boot() 
+    {
+        parent::boot();
+
+        static::creating(function ($menu) {
+            $menu->slug = Str::slug($menu->name);
+        });
+    }
 }

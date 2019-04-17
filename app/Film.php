@@ -30,7 +30,7 @@ class Film extends Model
     {
         return $this->hasMany('App\Episode');
     }
-
+    
     public function votes()
     {
         return $this->hasMany('App\Vote');
