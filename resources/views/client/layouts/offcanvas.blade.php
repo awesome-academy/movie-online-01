@@ -30,7 +30,7 @@
             <li class="uk-nav-divider"></li>
             <li class="uk-nav-header">{{ __('label.page') }}</li>
             <li><a href=""> {{ __('label.home') }}</a></li>
-            <li><a href=""> {{ __('label.term') }}</a></li>
+            <li><a href=""> {{ __('label.terms') }}</a></li>
             <li><a href=""> {{ __('label.policy') }}</a></li>
             <li><a href=""> {{ __('label.contact') }}</a></li>
         </ul>

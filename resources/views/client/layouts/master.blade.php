@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>{{ __('label.title') }}</title>
         <!--     Include UIKit CSS   -->
-        <link rel="stylesheet" href="{{ asset('bower_components/assets_template/assets/css/uikit.min.css') }}"> 
+        <link rel="stylesheet" href="{{ asset('bower_components/assets_template/assets/css/uikit.css') }}"> 
         <!--     Include Simplebar CSS   -->
         <link rel="stylesheet" href="{{ asset('bower_components/assets_template/assets/css/simplebar.css') }}">
         <!--     Theme CSS   -->
@@ -26,6 +26,8 @@
             <div class="uk-container uk-container-center uk-margin-large-top uk-margin-large-bottom">
                 
                 <div class="uk-grid">
+                    @yield('player')
+                    
                     @include('client.layouts.sidebar')
 
                     @yield('content')

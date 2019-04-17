@@ -35,7 +35,7 @@ return [
     'actor_film' => 'Diễn viên trong phim',
     'film_upload' => 'Phim tải lên',
     'country_ma' => 'Quản lý quốc gia',
-    'comment_ma' => 'Quản lý bình luận'
+    'comment_ma' => 'Quản lý bình luận',
     //menu manage
     'menu_name' => 'Tên',
     'menu_slug' => 'Slug',
@@ -50,5 +50,25 @@ return [
     'detail' => 'Chi tiết',
     'child_me' => 'Menu con',
     'parent_me' => 'Menu cha',
-    'category' => 'Thể loại'
+    'category' => 'Thể loại',
+    //details page
+    'desc' => 'DESCRIPTION',
+    'review' => 'REVIEWS',
+    'trailer' => 'TRAILER',
+    'watch' => 'Xem Phim',
+    'favourite' => 'Thêm vào yêu thích',
+    'mins' => 'Phút',
+    'starring' => 'Diễn viên chính',
+    'genre' => 'Thể loại',
+    'country' => 'Quốc gia',
+    //review tab
+    'post_review' => 'Đăng bình luận',
+    'please' => 'Vui lòng',
+    'login' => 'Đăng nhập',
+    'or' => 'hoặc',
+    'sign_up' => 'Đăng ký',
+    'to_post' => 'để đăng bình luận.',
+    'type' => 'Nhập bình luận tại đây...',
+    'post' => 'Đăng',
+    'also_like' => 'CÓ THỂ BẠN CŨNG THÍCH',
 ];

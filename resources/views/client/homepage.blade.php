@@ -35,7 +35,7 @@
                 <div class="uk-overlay uk-overlay-hover">
                     <img src="{{ asset(config('setting.client_image.placeholder') . 'placeholder.png') }}" alt="Image" >
                     <div class="uk-overlay-panel uk-overlay-fade uk-overlay-background  uk-overlay-icon"></div>
-                    <a class="uk-position-cover" href="media.html"></a>
+                    <a class="uk-position-cover" href="{{ route('show', ['id' => $key->id]) }}"></a>
                 </div>
                 <div class="uk-panel" > 
                     <h5 class="uk-panel-title">{{ $key->title_en }}</h5>
