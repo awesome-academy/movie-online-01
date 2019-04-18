@@ -63,6 +63,7 @@ return [
     'starring' => 'Starring',
     'genre' => 'Genres',
     'country' => 'Countries',
+    //details page
     //review tab
     'post_review' => 'Post a Review',
     'please' => 'Please',
@@ -73,4 +74,8 @@ return [
     'type' => 'Type your review here...',
     'post' => 'Post',
     'also_like' => 'YOU MIGHT ALSO LIKE',
+    //player page
+    'server' => 'Servers',
+    'youtube' => 'Youtube',
+    'comment' => 'Comments',
 ];

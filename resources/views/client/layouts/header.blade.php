@@ -1,6 +1,6 @@
 <nav id="tm-header" class="uk-navbar  ">
     <div class="uk-container uk-container-center ">
-        <a class="uk-navbar-brand uk-hidden-small" href="index.html"><i class="uk-icon-small uk-text-primary uk-margin-small-right uk-icon-play-circle"></i> {{ __('label.title_header') }}</a>
+        <a class="uk-navbar-brand uk-hidden-small" href="{{ route('index') }}"><i class="uk-icon-small uk-text-primary uk-margin-small-right uk-icon-play-circle"></i> {{ __('label.title_header') }}</a>
         
         <form class="uk-search uk-margin-small-top uk-margin-left uk-hidden-small">
             <input class="uk-search-field" type="search" placeholder="{{ __('label.search') }}" autocomplete="off">

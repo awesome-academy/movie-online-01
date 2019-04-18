@@ -62,7 +62,14 @@ class HomeController extends Controller
      */
     public function show($id)
     {
-        $details = Film::findOrFail($id);
+        $details = Film::with('episodes')->findOrFail($id);
+        // return $details;
+        $slug = $details->episodes->first();
+        if ($slug) {
+            $slug = $details->episodes->first()->slug;
+        } else {
+            $slug = Null;
+        }
         $votes = round($details->votes->avg('point'), 1);
         $actors = $details->actors;
 
@@ -75,9 +82,9 @@ class HomeController extends Controller
             array_push($filmOfMenu, Menu::find($genre->id)->films->where('id', '<>', $details->id));
         }
         $countries = $details->country()->get();
-        $comments = Comment::with('user')->where('film_id', $id)->get();
+        $comments = Comment::with('user')->where('film_id', $id)->orderBy('created_at', 'DESC')->get();
 
-        return view('client.detail', compact('details', 'votes', 'actors', 'genres', 'countries', 'comments', 'filmOfMenu'));
+        return view('client.detail', compact('details', 'votes', 'actors', 'genres', 'countries', 'comments', 'filmOfMenu', 'slug'));
     }
 
     /**

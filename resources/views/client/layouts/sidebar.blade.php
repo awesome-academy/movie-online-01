@@ -8,7 +8,7 @@
                     @foreach ($singleFilmHot as $single)
                     <li>
                         <article class="uk-comment uk-panel uk-panel-space uk-panel-box-secondary">
-                        <a href="#">
+                        <a href="{{ route('show', ['id' => $single->id]) }}">
                             <div> 
                                 <img src="{{ asset(config('setting.client_image.placeholder') . 'placeholder.png') }}" alt="Image" >
                             </div>
@@ -42,7 +42,7 @@
                     @foreach ($seriesFilmHot as $series)
                     <li>
                         <article class="uk-comment uk-panel uk-panel-space uk-panel-box-secondary">
-                        <a href="#">
+                        <a href="{{ route('show', ['id' => $series->id]) }}">
                             <div> 
                                 <img src="{{ asset(config('setting.client_image.placeholder') . 'placeholder.png') }}" alt="Image" >
                             </div>
