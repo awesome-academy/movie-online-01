@@ -71,4 +71,8 @@ return [
     'type' => 'Nhập bình luận tại đây...',
     'post' => 'Đăng',
     'also_like' => 'CÓ THỂ BẠN CŨNG THÍCH',
+    //player page
+    'server' => 'Servers',
+    'youtube' => 'Youtube',
+    'comment' => 'Bình luận',
 ];
