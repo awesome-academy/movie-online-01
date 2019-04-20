@@ -8,6 +8,7 @@ use App\Menu;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\MenuFormRequest;
+use Yajra\Datatables\Datatables;
 
 class MenuController extends Controller
 {
@@ -88,9 +89,9 @@ class MenuController extends Controller
     public function edit($id)
     {
         $menu = Menu::whereId($id)->firstOrFail();
-        $menus = Menu::where('parent_id', '=', 0)->get();   
-
-        return view('backend.menu.edit', compact('menu', 'menus'));
+        $parentmenus = Menu::where('parent_id', '=', 0)->get();   
+       
+        return view('backend.menu.edit', compact('menu', 'parentmenus'));
     }
 
     /**

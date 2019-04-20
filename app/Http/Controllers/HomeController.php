@@ -33,6 +33,9 @@ class HomeController extends Controller
         return view('client.homepage', compact('singleFilm', 'seriesFilm'));
     }
 
+    public function showfilmbymenu($id) {
+        
+    }
     /**
      * Show the form for creating a new resource.
      *

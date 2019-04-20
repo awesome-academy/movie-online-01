@@ -30,19 +30,19 @@
             @foreach ($menus as $menu)
                 @if ($menu->childMenu->count() > 0)
                     <li class="uk-parent" data-uk-dropdown>
-                        <a href="#">{{ $menu->name }}
+                        <a class="pointer" href="#">{{ $menu->name }}
                             <i class="uk-icon-angle-down uk-margin-small-left"></i>
                         </a>
                         <div class="uk-dropdown uk-dropdown-navbar">
                             <ul class="uk-nav uk-nav-navbar">
                                 @foreach ($menu->childMenu as $child)
-                                    <li><a href="#">{{ $child->name }}</a></li>
+                                    <li><a href="{{ route('showfilmbymenu', ['id' => $child->id]) }}">{{ $child->name }}</a></li>
                                 @endforeach
                             </ul>
                         </div>
                     </li>
                 @else
-                    <li><a href="#">{{ $menu->name }}</a></li>
+                    <li><a class="pointer" href="{{ route('showallfilms', ['id' => $menu->id]) }}">{{ $menu->name }}</a></li>
                 @endif              
             @endforeach
         </ul>

@@ -14,6 +14,8 @@
         <link rel="stylesheet" href="{{ asset('bower_components/assets_template/assets/css/swiper.min.css') }}">
         <!--     style CSS   -->
         <link rel="stylesheet" href="{{ asset('bower_components/assets_template/assets/css/styles.css') }}">
+        {{-- custom style css --}}
+        <link rel="stylesheet" href="{{ asset('bower_components/mvo1/css/stylecustom.css') }}">
     </head>
     <body>
 

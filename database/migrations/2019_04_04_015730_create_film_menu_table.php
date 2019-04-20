@@ -13,7 +13,12 @@ class CreateFilmMenuTable extends Migration
      */
     public function up()
     {
-        Schema::rename('menu_film', 'film_menu');
+        Schema::create('film_menu', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->unsignedInteger('film_id');
+            $table->unsignedInteger('menu_id');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -23,6 +28,6 @@ class CreateFilmMenuTable extends Migration
      */
     public function down()
     {
-        Schema::rename('film_menu', 'menu_film');
+        Schema::dropIfExists('film_menu');
     }
 }

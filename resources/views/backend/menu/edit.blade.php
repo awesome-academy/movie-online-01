@@ -27,11 +27,11 @@
                         <label for="{{ trans('label.category') }}" class="col-lg-2 control-label">{{ trans('label.category') }}</label>
                         <div class="col-lg-10">
                             <select class="form-control" id="category" name="valuemenu" multiple>
-                                <option value="0" selected="selected">
+                                <option value="0" @if ($menu->parent_id == 0) selected = 'selected' @endif>
                                     {{ trans('label.pmenu') }}
                                 </option>
-                                @foreach ($menus as $pmenu)
-                                <option value="{!! $pmenu->id !!}">
+                                @foreach ($parentmenus as $pmenu)
+                                <option value="{!! $pmenu->id !!}" @if ($pmenu->id === $menu->parent_id) selected = 'selected' @endif>
                                     {!! $pmenu->name !!}
                                 </option>
                                 @endforeach

@@ -17,7 +17,7 @@ class Film_MenuTableSeeder extends Seeder
 
         for ($i = 0; $i < $limit; $i++) {
             DB::table('film_menu')->insert([
-                'film_id' => $faker->numberBetween($min = 1, $max = 20),
+                'film_id' => $faker->numberBetween($min = 1, $max = 200),
                 'menu_id' => $faker->numberBetween($min = 5, $max = 25)
             ]);
         }
