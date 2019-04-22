@@ -10,6 +10,8 @@ return [
     'search' => 'Tìm kiếm...',
     'sign_up' => 'Đăng ký',
     'log_in' => 'Đăng nhập',
+    'manage' => 'Quản Lý',
+    'hello' => 'Xin Chào',
     //sidebar
     'view' => 'Lượt xem',
     'hot_single' => 'PHIM LẺ HOT TRONG TUẦN',
@@ -75,4 +77,13 @@ return [
     'server' => 'Servers',
     'youtube' => 'Youtube',
     'comment' => 'Bình luận',
+    //login page
+    'userOrEmail' => 'Tài khoản hoặc Email',
+    'password' => 'Mật khẩu',
+    'remember' => 'Giữ tôi đăng nhập',
+    'forgot_password' => 'Bạn quên mật khẩu?',
+    //register page
+    'full_name' => 'Họ tên',
+    'username' => 'Tài khoản',
+    'pass_confirm' => 'Nhập lại mật khẩu',
 ];

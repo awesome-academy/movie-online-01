@@ -10,6 +10,8 @@ return [
     'search' => 'Search...',
     'sign_up' => 'Sign Up',
     'log_in' => 'Log In',
+    'manage' => 'Manage',
+    'hello' => 'Hello',
     //sidebar
     'view' => 'Views',
     'hot_single' => 'HOT SINGLE MOVIES',
@@ -78,4 +80,13 @@ return [
     'server' => 'Servers',
     'youtube' => 'Youtube',
     'comment' => 'Comments',
+    //login page
+    'userOrEmail' => 'Username or Email',
+    'password' => 'Password',
+    'remember' => 'Remember Me',
+    'forgot_password' => 'Forgot Your Pasword?',
+    //register page
+    'full_name' => 'Full Name',
+    'username' => 'Username',
+    'pass_confirm' => 'Password Confirm',
 ];
