@@ -30,6 +30,7 @@
             <span>{{ trans('label.film_ma') }}</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+            <a class="dropdown-item" href="{{ route('film.index') }}">{{ trans('Film Manage') }}</a>
             <a class="dropdown-item" href="">{{ trans('label.episode_ma') }}</a>
             <a class="dropdown-item" href="">{{ trans('label.actor_film') }}</a>
             <a class="dropdown-item" href="">{{ trans('label.comment_ma') }}</a>

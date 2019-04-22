@@ -14,6 +14,7 @@
     <link href="{{ asset('bower_components/mvo1/css/sb-admin.css') }}" rel="stylesheet">
     {{-- Style custom css --}}
     <link href="{{ asset('bower_components/mvo1/css/stylecustom.css') }}" rel="stylesheet">
+    <link href="{{ asset('custom-css/custom.css') }}" rel="stylesheet">
 </head>
 <body id="page-top">
     <!--Header-->

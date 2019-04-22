@@ -21,3 +21,5 @@ Route::group(['prefix' => 'menu'], function () {
     Route::post('menulist/{id?}/edit', 'MenuController@update')->name('editmenu');   
     Route::post('menulist/{slug?}/delete', 'MenuController@destroy')->name('deletemenu');
 });
+//Film Manage
+Route::resource('film', 'FilmController');
