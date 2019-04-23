@@ -33,6 +33,13 @@ class HomeController extends Controller
         return view('client.homepage', compact('singleFilm', 'seriesFilm'));
     }
 
+    public function showfilmbymenu($id)
+    {
+        $menu = Menu::select('name')->where('id', $id)->firstOrFail();
+        $filmByMenu = Menu::find($id)->films()->orderBy('created_at', 'DESC')->paginate(config('app.pagination'));
+
+        return view('client.filmbymenupage', compact('menu', 'filmByMenu'));
+    }
     /**
      * Show the form for creating a new resource.
      *

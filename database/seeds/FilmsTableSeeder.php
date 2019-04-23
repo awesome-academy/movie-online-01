@@ -12,7 +12,7 @@ class FilmsTableSeeder extends Seeder
     public function run()
     {
         factory(App\Film::class, 20)->create([
-	    	'trailer' => 'https://www.youtube.com/watch?v=JIYRD7nWiSE',
+	    	'trailer' => 'JIYRD7nWiSE',
 	        'language' => 'english',
 	        'quality' => 'high'
     	]);

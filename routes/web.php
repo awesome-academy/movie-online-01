@@ -14,3 +14,4 @@
 Route::get('/', 'HomeController@index')->name('index');
 Route::get('details/{id}', 'HomeController@show')->name('show');
 Route::get('watch/{id}-{slug}.html', 'PlayerController@showEpisodes')->name('episode');
+Route::get('showallfilms/{id}', 'HomeController@showfilmbymenu')->name('showfilmbymenu');

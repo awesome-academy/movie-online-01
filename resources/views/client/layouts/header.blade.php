@@ -36,13 +36,13 @@
                         <div class="uk-dropdown uk-dropdown-navbar">
                             <ul class="uk-nav uk-nav-navbar">
                                 @foreach ($menu->childMenu as $child)
-                                    <li><a href="#">{{ $child->name }}</a></li>
+                                    <li><a href="{{ route('showfilmbymenu', ['id' => $child->id]) }}">{{ $child->name }}</a></li>
                                 @endforeach
                             </ul>
                         </div>
                     </li>
                 @else
-                    <li><a href="#">{{ $menu->name }}</a></li>
+                    <li><a class="point" href="{{ route('showfilmbymenu', ['id' => $menu->id]) }}">{{ $menu->name }}</a></li>
                 @endif              
             @endforeach
         </ul>
