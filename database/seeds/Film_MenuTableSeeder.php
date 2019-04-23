@@ -13,7 +13,7 @@ class Film_MenuTableSeeder extends Seeder
     {
         $faker = Faker\Factory::create();
 
-        $limit = 20;
+        $limit = 500;
 
         for ($i = 0; $i < $limit; $i++) {
             DB::table('film_menu')->insert([

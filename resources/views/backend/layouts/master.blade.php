@@ -37,6 +37,8 @@
     <script src="{{ asset('bower_components/mvo1/js/sb-admin.min.js') }}"></script>
     <!-- Demo scripts for this page-->
     <script src="{{ asset('bower_components/mvo1/js/demo/datatables-demo.js') }}"></script>
-    <script src="{{ asset('bower_components/mvo1/js/demo/chart-area-demo.js') }}></script>
+    <script src="{{ asset('bower_components/mvo1/js/demo/chart-area-demo.js') }}"></script>
+    <!-- App scripts -->
+    @stack('scripts')
 </body>
 </html>

@@ -16,7 +16,7 @@
 @if (!$menus && !$cmenus)
 <p>{{ trans('message.nomenu') }}</p>
 @else
-<table class="table mytb">
+<table class="table mytb" id="menus-table">
     <h3 class="text-center">{{ trans('label.pmenu') }}</h3>
     <thead>
         <tr>
@@ -62,7 +62,7 @@
                 <td>{!! $cmenu->name !!}</td>
                 <td>
                     <a class="btn btn-success" href="{{ route('editmenu', ['id' => $cmenu->id]) }}">{{ trans('label.edit') }}</a>
-                    <form method="post" action="{{ route('deletemenu', ['slug' => $cmenu->slug]) }}" class="pull-left tagForm">
+                    <form method="post" action="{{ route('deletemenu', ['slug' => $cmenu->slug]) }}" class="pull-left tagForm tagForm2">
                         @csrf
                         <div>
                             <button type="submit" class="btn btn-warning">{{ trans('label.delete') }}</button>
@@ -76,4 +76,12 @@
 </table>
  @endif
 <!-- /.container-fluid -->
-@endsection
+@stop
+
+@push('scripts')
+<script>
+$(document).ready( function () {
+    $('.mytb').DataTable();
+} );
+</script>
+@endpush
