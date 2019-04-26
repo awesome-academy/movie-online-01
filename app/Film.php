@@ -6,6 +6,22 @@ use Illuminate\Database\Eloquent\Model;
 
 class Film extends Model
 {
+    protected $fillable = [
+        'user_id',
+        'title_en',
+        'title_vn',
+        'slug',
+        'thumb',
+        'director',
+        'country_id',
+        'year',
+        'duration',
+        'description',
+        'trailer',
+        'language',
+        'quality',
+    ];
+    
     public function actors()
     {
         return $this->belongsToMany('App\Actor');
@@ -44,5 +60,10 @@ class Film extends Model
     public function menus()
     {
         return $this->belongsToMany('App\Menu');
+    }
+
+    public function uploadByUser()
+    {
+        return $this->belongsTo('App\User', 'user_id');
     }
 }
