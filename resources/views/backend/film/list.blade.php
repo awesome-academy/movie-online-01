@@ -21,6 +21,7 @@
                 <table class="table table-bordered" id="dataTable" cellspacing="0">
                     <thead>
                       <tr>
+                        <th>{{ __('label.updated_at') }}</th>
                         <th>{{ __('label.title_en') }}</th>
                         <th>{{ __('label.title_vi') }}</th>
                         <th>{{ __('Slug') }}</th>
@@ -29,12 +30,12 @@
                         <th>{{ __('label.duration') }} ({{ __('label.mins') }})</th>
                         <th>{{ __('label.view') }}</th>
                         <th>{{ __('label.upload_by') }}</th>
-                        <th>{{ __('label.created_at') }}</th>
                         <th>{{ __('label.action') }}</th>
                       </tr>
                     </thead>
                     <tfoot>
                       <tr>
+                        <th>{{ __('label.updated_at') }}</th>
                         <th>{{ __('label.title_en') }}</th>
                         <th>{{ __('label.title_vi') }}</th>
                         <th>{{ __('Slug') }}</th>
@@ -43,13 +44,13 @@
                         <th>{{ __('label.duration') }} ({{ __('label.mins') }})</th>
                         <th>{{ __('label.view') }}</th>
                         <th>{{ __('label.upload_by') }}</th>
-                        <th>{{ __('label.created_at') }}</th>
                         <th>{{ __('label.action') }}</th>  
                       </tr>
                     </tfoot>
                     <tbody>
                         @foreach ($films as $film)
                             <tr>
+                                <td data-order>{{ $film->updated_at }}</td>
                                 <td>{{ $film->title_en }}</td>
                                 <td>{{ $film->title_vn }}</td>
                                 <td>{{ $film->slug }}</td>
@@ -58,9 +59,8 @@
                                 <td>{{ $film->duration }}</td>
                                 <td>{{ $film->viewed_day }}</td>
                                 <td>{{ $film->uploadByUser->username }}</td>
-                                <td>{{ $film->created_at }}</td>
                                 <td>
-                                    <a href="{{ route('film.show', ['id' => $film->id]) }}">
+                                    <a href="{{ route('film.edit', ['id' => $film->id]) }}">
                                         <button class="btn btn-primary btn-sm" >{{ __('label.edit') }}</button>
                                     </a>
                                     <form method="POST" action="{{ route('film.destroy', ['id' => $film->id]) }}">

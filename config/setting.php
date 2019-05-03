@@ -7,4 +7,5 @@ return [
     	'homepage' => 10,
     	'sidebar' => 5,
     ],
+    'timezone' => 'HoChiMinh',
 ];
