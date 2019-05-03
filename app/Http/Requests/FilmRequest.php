@@ -23,7 +23,7 @@ class FilmRequest extends FormRequest
      */
     public function rules()
     {
-        return [
+        $rules = [
             'title_en' => 'required_without:title_vn|max:255',
             'title_vn' => 'required_without:title_en|max:255',
             'director' => 'max:50',
@@ -31,10 +31,15 @@ class FilmRequest extends FormRequest
             'duration' => 'required|numeric',
             'trailer' => 'required|max:255',
             'description' => 'required',
-            'img' => 'required|image',
             'menu' => 'required',
             'actor' => 'required',
         ];
+
+        if (request()->method() == 'POST') {
+            $rules = array_merge($rules, ['img' => 'required|image']);
+        }
+
+        return $rules;
     }
 
     public function messages()

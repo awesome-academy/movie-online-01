@@ -2,6 +2,7 @@
 
 @section('content')
 
+<input type="hidden" value="{{ asset(config('setting.client_image.placeholder') . 'placeholder.png') }}" id="defaultImage">
 <!-- Breadcrumbs-->
 <ol class="breadcrumb">
     <li class="breadcrumb-item">
@@ -174,8 +175,13 @@
 @push('scripts')
 
 <script>
-    function encodeImageFileAsURL(element) {
+    function encodeImageFileAsURL(element, deploySelector) {
         var file = element.files[0];
+        if (file == undefined) {
+                $('#' + deploySelector).attr('src', $('#defaultImage').val());
+                
+                return false;
+            }
         var reader = new FileReader();
         reader.onloadend = function() {
             // console.log('RESULT', reader.result)

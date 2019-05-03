@@ -107,6 +107,7 @@ return [
     //Admin - List Film page
     'upload_by' => 'Upload By',
     'created_at' => 'Created At',
+    'updated_at' => 'Updated At',
     'updated' => 'Updated',
     'at' => 'at',
 ];
