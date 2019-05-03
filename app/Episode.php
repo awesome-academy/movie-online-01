@@ -10,4 +10,9 @@ class Episode extends Model
     {
         return $this->belongsTo('App\Film');
     }
+
+    public function user()
+    {
+    	return $this->belongsTo('App\User', 'user_id');
+    }
 }

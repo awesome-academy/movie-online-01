@@ -23,3 +23,5 @@ Route::group(['prefix' => 'menu'], function () {
 });
 //Film Manage
 Route::resource('film', 'FilmController');
+//Episodes
+Route::resource('film/{id}/episode', 'EpisodeController');

@@ -110,4 +110,8 @@ return [
     'updated_at' => 'Updated At',
     'updated' => 'Updated',
     'at' => 'at',
+    //Admin - Episode
+    'add_episode' => 'Add new Episode',
+    'episode_of' => 'Episodes Of',
+    'episode_management' => 'Episode Management',
 ];

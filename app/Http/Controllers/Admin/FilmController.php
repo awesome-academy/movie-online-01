@@ -84,9 +84,11 @@ class FilmController extends Controller
         return redirect()->route('film.index');
     }
 
-    public function show($id)
+    public function show(Film $film)
     {
-        //
+        $film = Film::with('episodes.user')->findOrFail($film->id);
+
+        return view('backend.film.showEpisode', compact('film'));
     }
 
     public function edit(Film $film)
