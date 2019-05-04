@@ -14,4 +14,5 @@ return [
     'numeric' => ':attribute phải là kiểu số.',
     'image' => ':attribute phải là ảnh.',
     'digits_between' => ':attribute phải từ :min đến :max chữ số.',
+    'min' => ':attribute phai nhiều hơn :min kí tự.',
 ];
