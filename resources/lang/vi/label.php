@@ -107,4 +107,8 @@ return [
     'created_at' => 'Created At',
     'updated' => 'Cập nhật',
     'at' => 'vào lúc',
+    //Admin - Episode
+    'add_episode' => 'Thêm tập mới',
+    'episode_of' => 'Danh sách tập của',
+    'episode_management' => 'Quản lý tập phim',
 ];

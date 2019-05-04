@@ -61,12 +61,15 @@
                                 <td>{{ $film->uploadByUser->username }}</td>
                                 <td>
                                     <a href="{{ route('film.edit', ['id' => $film->id]) }}">
-                                        <button class="btn btn-primary btn-sm" >{{ __('label.edit') }}</button>
+                                        <button class="btn btn-primary btn-sm" ><i class="fas fa-edit"></i></button>
+                                    </a>
+                                    <a href="{{ route('film.show', ['id' => $film->id]) }}">
+                                        <button class="btn btn-info btn-sm" ><i class="far fa-eye"></i></button>
                                     </a>
                                     <form method="POST" action="{{ route('film.destroy', ['id' => $film->id]) }}">
                                         @method('DELETE')
                                         @csrf
-                                        <button type="submit" class="btn btn-danger btn-sm">{{ __('label.delete') }}</button>
+                                        <button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
                                     </form>
                                 </td>
                               </tr>
