@@ -14,7 +14,8 @@ class FilmsTableSeeder extends Seeder
         factory(App\Film::class, 20)->create([
 	    	'trailer' => 'JIYRD7nWiSE',
 	        'language' => 'english',
-	        'quality' => 'high'
+            'quality' => 'high',
+            'slug' => 'slug_film'
     	]);
     }
 }

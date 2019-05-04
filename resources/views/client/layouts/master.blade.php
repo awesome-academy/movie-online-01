@@ -14,6 +14,8 @@
         <link rel="stylesheet" href="{{ asset('bower_components/assets_template/assets/css/swiper.min.css') }}">
         <!--     style CSS   -->
         <link rel="stylesheet" href="{{ asset('bower_components/assets_template/assets/css/styles.css') }}">
+        <!--    custom style CSS using laravelmix -->
+        <link rel="stylesheet" href="{{ asset('custom-css/custom.css') }}">
     </head>
     <body>
 
@@ -46,12 +48,13 @@
         <!--     ./ Offcanvas Menu   -->
 
         <!--     Include JS   -->
-
+        
+        
         <script src="{{ asset('bower_components/assets_template/assets/js/jquery.js') }}"></script>
         <script src="{{ asset('bower_components/assets_template/assets/js/uikit.min.js') }}"></script>
         <script src="{{ asset('bower_components/assets_template/assets/js/components/slideset.min.js') }}"></script>
         <script src="{{ asset('bower_components/assets_template/assets/js/simplebar.min.js') }}"></script>
         <script src="{{ asset('bower_components/assets_template/assets/js/components/grid.min.js') }}"></script>
-
+        @stack('script')
     </body>
 </html>

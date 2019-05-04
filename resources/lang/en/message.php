@@ -14,5 +14,6 @@ return [
     'numeric' => 'The :attribute must be a number.',
     'image' => 'The :attribute must be an image.',
     'digits_between' => 'The :attribute must be between :min and :max digits.',
+    'min' => 'The :attribute may be greater than :min characters.',
 ];
 

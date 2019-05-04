@@ -17,3 +17,5 @@ Route::get('watch/{id}-{slug}.html', 'PlayerController@showEpisodes')->name('epi
 Route::get('showallfilms/{id}', 'HomeController@showfilmbymenu')->name('showfilmbymenu');
 
 Auth::routes();
+
+Route::post('comment', 'PlayerController@comment')->name('comment')->middleware('comment');

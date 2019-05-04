@@ -5,4 +5,23 @@
     width: 255px;
     height: 382px;
     object-fit: cover;
-} 
+}
+
+.avatarimg {
+    position: absolute;
+    left: 12px;
+    top: 35px;
+}
+
+.divavatar {
+    position: relative;
+}
+
+.commenttext {
+    height: 138px!important;
+    padding-top: 72px!important;
+}
+
+.message_error {
+    color: red!important;
+}
