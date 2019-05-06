@@ -7,6 +7,22 @@
     object-fit: cover;
 }
 
+.overlay {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    object-fit: cover;
+}
+.overlay-home {
+    width: 177px;
+    height: 260px;
+}
+
+.overlay-sidebar {
+    width: 140px;
+    height: 202px;
+}
+
 .avatarimg {
     position: absolute;
     left: 12px;
