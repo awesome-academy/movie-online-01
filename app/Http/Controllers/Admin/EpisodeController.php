@@ -4,6 +4,11 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Film;
+use App\Episode;
+use Auth;
+use Illuminate\Support\Str;
+use App\Http\Requests\EpisodeRequest;
 
 class EpisodeController extends Controller
 {
@@ -22,9 +27,11 @@ class EpisodeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        return 'create';
+    	$film = Film::findOrFail($id);
+
+        return view('backend.episode.create', compact('film'));
     }
 
     /**
@@ -33,9 +40,21 @@ class EpisodeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(EpisodeRequest $request, $film_id)
     {
-        //
+        $url = str_after(request()->url, '=');
+        $slug = Str::slug(request()->name, '-');
+        $user_id = Auth::user()->id;
+
+        Episode::create([
+            'name' => request('name'),
+            'url' => $url,
+            'slug' => $slug,
+            'user_id' => $user_id,
+            'film_id' => $film_id,
+        ]);
+        
+        return redirect()->route('film.show', $film_id);
     }
 
     /**
@@ -55,9 +74,9 @@ class EpisodeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id, Episode $episode)
     {
-        return 'edit';
+        return view('backend.episode.edit', compact('episode'));
     }
 
     /**
@@ -67,9 +86,21 @@ class EpisodeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(EpisodeRequest $request, $film_id, $episode)
     {
-        //
+        $url = str_after(request()->url, '=');
+        $slug = Str::slug(request()->name, '-');
+        $user_id = Auth::user()->id;
+
+        Episode::whereId($episode)->update([
+            'name' => request('name'),
+            'url' => $url,
+            'slug' => $slug,
+            'user_id' => $user_id,
+            'film_id' => $film_id,
+        ]);
+
+        return redirect()->route('film.show', $film_id);
     }
 
     /**
@@ -78,8 +109,10 @@ class EpisodeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($film_id, Episode $episode)
     {
-        return 'delete';
+        $episode->delete();
+
+        return redirect()->route('film.show', $film_id);
     }
 }

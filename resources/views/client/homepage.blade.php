@@ -7,7 +7,11 @@
         @foreach ($singleFilm as $key)
             <div>
                 <div class="uk-overlay uk-overlay-hover">
-                    <img src="{{ asset(config('setting.client_image.placeholder') . 'placeholder.png') }}" alt="Image" class="img_size">
+                    @if ($key->thumb)
+                        <img src="{{ asset($key->thumb) }}" alt="Image" class="img_size  overlay overlay-home">
+                    @else
+                        <img src="{{ asset(config('setting.client_image.placeholder') . 'placeholder.png') }}" alt="Image" class="img_size overlay overlay-home">
+                    @endif
                     <div class="uk-overlay-panel uk-overlay-fade uk-overlay-background  uk-overlay-icon"></div>
                     <a class="uk-position-cover" href="{{ route('show', ['id' => $key->id]) }}"></a>
                 </div>
@@ -33,7 +37,11 @@
         @foreach ($seriesFilm as $key)
             <div>
                 <div class="uk-overlay uk-overlay-hover">
-                    <img src="{{ asset(config('setting.client_image.placeholder') . 'placeholder.png') }}" alt="Image" >
+                    @if ($key->thumb)
+                        <img src="{{ asset($key->thumb) }}" alt="Image" class="img_size  overlay overlay-home">
+                    @else
+                        <img src="{{ asset(config('setting.client_image.placeholder') . 'placeholder.png') }}" alt="Image" class="img_size  overlay overlay-home">
+                    @endif
                     <div class="uk-overlay-panel uk-overlay-fade uk-overlay-background  uk-overlay-icon"></div>
                     <a class="uk-position-cover" href="{{ route('show', ['id' => $key->id]) }}"></a>
                 </div>

@@ -9,9 +9,11 @@
                     <li>
                         <article class="uk-comment uk-panel uk-panel-space uk-panel-box-secondary">
                         <a href="{{ route('show', ['id' => $single->id]) }}">
-                            <div> 
-                                <img src="{{ asset(config('setting.client_image.placeholder') . 'placeholder.png') }}" alt="Image" >
-                            </div>
+                            @if ($single->thumb)
+                                <img src="{{ asset($single->thumb) }}" alt="Image" class="img_size  overlay overlay-sidebar">
+                            @else
+                                <img src="{{ asset(config('setting.client_image.placeholder') . 'placeholder.png') }}" alt="Image" class="img_size overlay overlay-sidebar">
+                            @endif
                         </a>
                         <p>{{ $single->title_en }}</p>
                         <div>
@@ -43,9 +45,11 @@
                     <li>
                         <article class="uk-comment uk-panel uk-panel-space uk-panel-box-secondary">
                         <a href="{{ route('show', ['id' => $series->id]) }}">
-                            <div> 
-                                <img src="{{ asset(config('setting.client_image.placeholder') . 'placeholder.png') }}" alt="Image" >
-                            </div>
+                            @if ($series->thumb)
+                                <img src="{{ asset($series->thumb) }}" alt="Image" class="img_size  overlay overlay-sidebar">
+                            @else
+                                <img src="{{ asset(config('setting.client_image.placeholder') . 'placeholder.png') }}" alt="Image" class="img_size overlay overlay-sidebar">
+                            @endif
                         </a>
                         <p>{{ $series->title_en }}</p>
                         <div>
