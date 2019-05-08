@@ -55,6 +55,8 @@
         <script src="{{ asset('bower_components/assets_template/assets/js/components/slideset.min.js') }}"></script>
         <script src="{{ asset('bower_components/assets_template/assets/js/simplebar.min.js') }}"></script>
         <script src="{{ asset('bower_components/assets_template/assets/js/components/grid.min.js') }}"></script>
+        <script src="{{ asset('typeahead/typeahead.bundle.min.js') }}"></script>
+        
         @stack('script')
     </body>
 </html>

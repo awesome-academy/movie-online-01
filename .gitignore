@@ -12,4 +12,5 @@ yarn-error.log
 /public/bower_components
 /storage/debugbar
 /public/custom-css
+/public/typeahead
 /public/images
