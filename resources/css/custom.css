@@ -41,3 +41,11 @@
 .message_error {
     color: red!important;
 }
+
+.tt-highlight {
+    color: red;
+}
+
+.list-item-custom {
+    border-bottom: 1px solid rgb(230, 220, 220);
+}

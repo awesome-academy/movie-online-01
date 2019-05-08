@@ -1,12 +1,9 @@
 <nav id="tm-header" class="uk-navbar  ">
     <div class="uk-container uk-container-center ">
         <a class="uk-navbar-brand uk-hidden-small" href="{{ route('index') }}"><i class="uk-icon-small uk-text-primary uk-margin-small-right uk-icon-play-circle"></i> {{ __('label.title_header') }}</a>
-        
-        <form class="uk-search uk-margin-small-top uk-margin-left uk-hidden-small">
-            <input class="uk-search-field" type="search" placeholder="{{ __('label.search') }}" autocomplete="off">
-            <div class="uk-dropdown uk-dropdown-flip uk-dropdown-search" aria-expanded="false">
-            </div>
-        </form>
+        <input class="uk-search-field" id="search" type="text" placeholder="{{ __('label.search') }}" autocomplete="off">
+        <div class="uk-dropdown uk-dropdown-flip uk-dropdown-search" aria-expanded="false">
+        </div>
         <div class="uk-navbar-flip uk-hidden-small">
             <div class="uk-button-group">
                 @guest
@@ -29,7 +26,6 @@
 <nav class="uk-navbar uk-navbar-secondary uk-hidden-small">
     <div class="uk-container-center uk-container">
         <ul class="uk-navbar-nav">
-            {{-- <li class="uk-active"><a href="#">{{ __('label.home') }}</a></li> --}}
             <li><a href="{{ route('index') }}">{{ __('label.home') }}</a></li>
             @foreach ($menus as $menu)
                 @if ($menu->childMenu->count() > 0)
@@ -82,3 +78,57 @@
         </div>
     </div>
 </nav>
+@push('script')
+<script type="text/javascript">
+    $(document).ready(function() {
+        var bloodhound = new Bloodhound({
+            datumTokenizer: Bloodhound.tokenizers.whitespace('q'),
+            queryTokenizer: Bloodhound.tokenizers.whitespace,
+            remote: {
+                url: '/search?q=%QUERY%',
+                wildcard: '%QUERY%'
+            },
+        });
+            
+        $('#search').typeahead({
+            hint: true,
+            highlight: true,
+            minLength: 1
+        }, {
+            name: 'users',
+            source: bloodhound,
+            limit: 10,
+            display: function(data) {
+                return data.title_en
+            },
+            templates: {
+                empty: [
+                    `
+                    <div class="list-group search-results-dropdown">
+                        <div class="list-group-item">{{ __('Nothing found.') }}</div>
+                    </div>
+                    `
+                ],
+                header: [
+                    `
+                    <div class="list-group search-results-dropdown">
+                    `
+                ],
+                suggestion: function(data) {
+                    return `<div class="list-group-item uk-dropdown-navbar list-item-custom">
+                        <ul class="uk-nav uk-nav-navbar">
+                            <li>
+                                <a class="list-group-item" href="details/` + data.id + `">
+                                <b>{{ __('label.title_en') }}</b>` + ': ' + data.title_en + `<br>
+                                <b>{{ __('label.title_vi') }}</b>` + ': ' + data.title_vn + `<br>
+                                <b>{{ __('label.director') }}</b>` + ': ' + data.director + `
+                                </a>
+                            </li>
+                        </ul>
+                    </div>`
+                }
+            }
+        });
+    });
+</script>
+@endpush
