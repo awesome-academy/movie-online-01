@@ -7,7 +7,7 @@
        </a>
    </li>
    <li class="nav-item">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="{{ route('user.index') }}">
            <i class="fas fa-fw fa-folder"></i>
            <span>{{ trans('label.user_ma') }}</span>
         </a>

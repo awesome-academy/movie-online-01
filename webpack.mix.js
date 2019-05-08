@@ -12,3 +12,6 @@ const mix = require('laravel-mix');
  */
 
 mix.copyDirectory('resources/css', 'public/custom-css');
+mix.copy('node_modules/corejs-typeahead/dist/typeahead.bundle.min.js', 'public/typeahead');
+mix.copyDirectory('resources/img', 'public/img');
+

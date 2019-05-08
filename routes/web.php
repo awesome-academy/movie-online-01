@@ -19,3 +19,6 @@ Route::get('showallfilms/{id}', 'HomeController@showfilmbymenu')->name('showfilm
 Auth::routes();
 
 Route::post('comment', 'PlayerController@comment')->name('comment')->middleware('comment');
+
+//Search
+Route::get('/search', 'SearchController@searchFullText')->name('search');

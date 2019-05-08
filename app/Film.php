@@ -3,9 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Traits\SearchFullText;
 
 class Film extends Model
 {
+    use SearchFullText;
+
     protected $fillable = [
         'user_id',
         'title_en',
@@ -20,6 +23,12 @@ class Film extends Model
         'trailer',
         'language',
         'quality',
+    ];
+
+    protected $searchable = [
+        'title_en',
+        'title_vn',
+        'director',
     ];
     
     public function actors()

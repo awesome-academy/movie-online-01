@@ -24,6 +24,8 @@
         "webpack-cli": "^3.3.1"
     },
     "dependencies": {
-        "bower": "^1.8.8"
+        "bower": "^1.8.8",
+        "corejs-typeahead": "^1.2.1",
+        "typeahead.js": "^0.11.1"
     }
 }

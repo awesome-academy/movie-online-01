@@ -41,3 +41,20 @@
 .message_error {
     color: red!important;
 }
+
+.tt-highlight {
+    color: red;
+}
+
+.list-item-custom {
+    border-bottom: 1px solid rgb(230, 220, 220);
+}
+
+.div_img {
+    width: 50px;
+    height: 50px;
+}
+
+.img_avatar {
+    width: 100%;
+}
