@@ -176,7 +176,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         // Laravel Debugbar
         'Barryvdh\Debugbar\ServiceProvider',
-
+        Yajra\DataTables\DataTablesServiceProvider::class,
     ],
 
     /*
@@ -228,7 +228,6 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Debugbar' => 'Barryvdh\Debugbar\Facade',
-
+        'DataTables' => Yajra\DataTables\Facades\DataTables::class,
     ],
-
 ];

@@ -114,4 +114,15 @@ return [
     'add_episode' => 'Add new Episode',
     'episode_of' => 'Episodes Of',
     'episode_management' => 'Episode Management',
+    //Admin - User
+    'add_user' => 'Add new user',
+    'username' => 'Username',
+    'email' => 'Email',
+    'password' => 'Password',
+    'full_name' => 'Fullname',
+    'avatar' => 'Avatar',
+    'banned' => 'State',
+    'role' => 'Role',
+    'edit' => 'edit',
+    'delete' => 'delete',
 ];

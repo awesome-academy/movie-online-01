@@ -111,4 +111,15 @@ return [
     'add_episode' => 'Thêm tập mới',
     'episode_of' => 'Danh sách tập của',
     'episode_management' => 'Quản lý tập phim',
+    //Admin - User
+    'add_user' => 'Thêm người dùng',
+    'username' => 'Tên đăng nhập',
+    'email' => 'Email',
+    'password' => 'Mật khẩu',
+    'full_name' => 'Tên đầy đủ',
+    'avatar' => 'Ảnh',
+    'banned' => 'Trạng thái',
+    'role' => 'Vai trò',
+    'edit' => 'sửa',
+    'delete' => 'xóa'
 ];
