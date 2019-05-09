@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Actor extends Model
 {
+	protected $guarded = [];
+
     public function films()
     {
         return $this->belongsToMany('App\Film');

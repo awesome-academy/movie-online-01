@@ -37,7 +37,7 @@
         </div>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="charts.html">
+        <a class="nav-link" href="{{ route('actor.index') }}">
             <i class="fas fa-fw fa-chart-area"></i>
             <span>{{ trans('label.actor_ma') }}</span></a>
     </li>

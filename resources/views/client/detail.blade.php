@@ -2,6 +2,11 @@
 @section('content')
 
 <div id="tm-media-section" class="uk-block-custom uk-block uk-block-small">
+    @if (session('msg'))
+    <div class="uk-text-info msg">
+        {{ session('msg') }}
+    </div>
+    @endif
     <div class="uk-container-custom uk-container uk-container-center uk-width-8-10">
         <div class="uk-grid">
             <div class="uk-width-medium-3-10">
@@ -17,8 +22,22 @@
                         <i class="uk-icon-television uk-margin-small-right"></i> {{ __('label.watch') }}
                     </a>
                 @endif
-                <a class="uk-button uk-button-link uk-text-muted uk-button-large uk-width-1-1 uk-margin-top" href="#"><i class="uk-icon-heart uk-margin-small-right"></i> {{ __('label.favourite') }}</a>
-            </div>
+
+                @if (Auth::check())
+                    @if (!$favorite)
+                        <a class="uk-button uk-button-link uk-text-muted uk-button-large uk-width-1-1 uk-margin-top btn_save_film" href="{{ route('savefavoritefilm', ['id' => $details->id]) }}"><i class="uk-icon-heart uk-margin-small-right"></i> {{ __('label.favourite') }}</a>
+                    @else
+                        <a id="removefilm" class="uk-button uk-button-link uk-text-muted uk-button-large uk-width-1-1 uk-margin-top btn_save_film" href="{{ route('removefavoritefilm', ['id' => $details->id]) }}"><i class="uk-icon-close uk-margin-small-right"></i> {{ __('label.remove_favourite') }}</a>
+                    @endif
+                @else
+                    <button class="uk-button uk-button-link uk-text-muted uk-button-large uk-width-1-1 uk-margin-top btn_save_film" onclick="authenticate()"><i class="uk-icon-heart uk-margin-small-right"></i> {{ __('label.favourite') }}</button>
+                    <p id="authentication">
+                        <i class="uk-icon-exclamation-triangle uk-margin-small-right"></i> {{ __('label.please') }}
+                        <a class="uk-text-contrast" href="{{ route('login') }}"> {{ __('label.login') }}</a> {{ __('label.or') }}
+                        <a class="uk-text-contrast" href="{{ route('register') }}">{{ __('label.sign_up') }}</a> {{ __('label.to_save_film') }}
+                    </p>
+                @endif
+                </div>
             <div class="uk-width-medium-7-10">
                 <div class="">
                     <ul class="uk-tab uk-tab-grid " data-uk-switcher="{connect:'#media-tabs'}">
@@ -159,4 +178,11 @@
     </div>
 </div>
 
-@endsection
+@stop 
+@push('script')
+<script>
+    function authenticate() {
+        document.getElementById("authentication").classList.add('authentication');
+    }
+</script>
+@endpush

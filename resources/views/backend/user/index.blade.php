@@ -47,7 +47,6 @@
             processing: true,
             serverSide: true,
             ajax: "{{ route('user.index') }}",
-
             columns: [
                 {
                     data: 'DT_RowIndex',
@@ -78,7 +77,6 @@
                     orderable: false,
                     searchable: false
                 },
-
             ]
         });
      });

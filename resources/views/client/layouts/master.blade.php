@@ -16,6 +16,8 @@
         <link rel="stylesheet" href="{{ asset('bower_components/assets_template/assets/css/styles.css') }}">
         <!--    custom style CSS using laravelmix -->
         <link rel="stylesheet" href="{{ asset('custom-css/custom.css') }}">
+        <!-- add -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body>
 
@@ -56,7 +58,7 @@
         <script src="{{ asset('bower_components/assets_template/assets/js/simplebar.min.js') }}"></script>
         <script src="{{ asset('bower_components/assets_template/assets/js/components/grid.min.js') }}"></script>
         <script src="{{ asset('typeahead/typeahead.bundle.min.js') }}"></script>
-        
+        <!-- App scripts -->
         @stack('script')
     </body>
 </html>

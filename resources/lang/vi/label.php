@@ -121,5 +121,16 @@ return [
     'banned' => 'Trạng thái',
     'role' => 'Vai trò',
     'edit' => 'sửa',
-    'delete' => 'xóa'
+    'delete' => 'xóa',
+    //Admin-Actor
+    'actor_manage' => 'Quản lý diễn viên',
+    'add_actor' => 'Thêm diễn viên',
+    'update_actor' => 'Cập nhật diễn viên',
+    'real_name' => 'Tên thật',
+    'stage_name' => 'Nghệ danh',
+    'birthday' => 'Ngày sinh',
+    'location' => 'Location',
+    'list_actor' => 'Danh sách diễn viên',
+    'favorite_film' => 'Phim yêu thích',
+    'to_save_film' => 'thêm phim vào yêu thích',
 ];
