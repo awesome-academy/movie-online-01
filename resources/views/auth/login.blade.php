@@ -20,18 +20,22 @@
                         <div class="uk-form-icon uk-form-icon-flip uk-width-1-1">
                             <input id="username" type="text" class="uk-width-1-1{{ $errors->has('email') || $errors->has('username') ? 'is-invalid' : '' }}" name="username" value="{{ old('username') }}" required placeholder="{{ __('label.userOrEmail') }}">
                             <i class="uk-icon-user"></i>
-                            @if ($errors->has('email'))
+                        </div>
+                        @if ($errors->has('email'))
+                            <div class="uk-text-danger" role="alert">
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $errors->first('email') }}</strong>
                                 </span>
-                            @endif
+                            </div>
+                        @endif
 
-                            @if ($errors->has('username'))
+                        @if ($errors->has('username'))
+                            <div class="uk-text-danger" role="alert">
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $errors->first('username') }}</strong>
                                 </span>
-                            @endif
-                        </div>
+                            </div>
+                        @endif
                     </div>
                     <div class="uk-form-row">
                         <div class="uk-form-icon uk-form-icon-flip uk-width-1-1" >
