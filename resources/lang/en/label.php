@@ -125,4 +125,13 @@ return [
     'role' => 'Role',
     'edit' => 'edit',
     'delete' => 'delete',
+    //Admin-Actor
+    'actor_manage' => 'Actors Management',
+    'add_actor' => 'Add new Actor',
+    'update_actor' => 'Update Actor',
+    'real_name' => 'Real Name',
+    'stage_name' => 'Stage Name',
+    'birthday' => 'Birthday',
+    'location' => 'Location',
+    'list_actor' => 'List Actor',
 ];
