@@ -20,45 +20,53 @@
                         <div class="uk-form-icon uk-form-icon-flip uk-width-1-1">
                             <input type="text" class="uk-width-1-1{{ $errors->has('full_name') ? ' is-invalid' : '' }}" placeholder="{{ __('label.full_name') }}" name="full_name" value="{{ old('full_name') }}" required autofocus>
                             <i class="uk-icon-user"></i>
-                            @if ($errors->has('full_name'))
+                        </div>
+                        @if ($errors->has('full_name'))
+                            <div class="uk-text-danger" role="alert">
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $errors->first('full_name') }}</strong>
                                 </span>
-                            @endif
-                        </div>
+                            </div>
+                        @endif
                     </div>
                     <div class="uk-form-row">
                         <div class="uk-form-icon uk-form-icon-flip uk-width-1-1">
                             <input type="text" class="uk-width-1-1{{ $errors->has('username') ? ' is-invalid' : '' }}" placeholder="{{ __('label.username') }}" name="username" value="{{ old('username') }}" required autofocus>
                             <i class="uk-icon-user"></i>
-                            @if ($errors->has('username'))
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $errors->first('username') }}</strong>
-                                </span>
-                            @endif
                         </div>
+                            @if ($errors->has('username'))
+                                <div class="uk-text-danger" role="alert">
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('username') }}</strong>
+                                    </span>
+                                </div>
+                            @endif
                     </div>
                     <div class="uk-form-row">
                         <div class="uk-form-icon uk-form-icon-flip uk-width-1-1" >
                             <input type="text" class="uk-width-1-1{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="{{ __('Email') }}" name="email" value="{{ old('email') }}" required autofocus>
                             <i class="uk-icon-user"></i>
-                            @if ($errors->has('email'))
+                        </div>
+                        @if ($errors->has('email'))
+                            <div class="uk-text-danger" role="alert">
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $errors->first('email') }}</strong>
                                 </span>
-                            @endif
-                        </div>
+                            </div>
+                        @endif
                     </div> 
                     <div class="uk-form-row">
                         <div class="uk-form-icon uk-form-icon-flip uk-width-1-1" >
                             <input type="password" class="uk-width-1-1{{ $errors->has('password') ? ' is-invalid' : '' }}" placeholder="{{ __('label.password') }}" name="password" value="{{ old('password') }}" required autofocus>
                             <i class="uk-icon-lock"></i>
-                            @if ($errors->has('password'))
+                        </div>
+                        @if ($errors->has('password'))
+                            <div class="uk-text-danger" role="alert">
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $errors->first('password') }}</strong>
                                 </span>
-                            @endif
-                        </div>
+                            </div>
+                        @endif
                     </div> 
                     <div class="uk-form-row">
                         <div class="uk-form-icon uk-form-icon-flip uk-width-1-1" >

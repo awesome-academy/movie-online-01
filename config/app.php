@@ -67,7 +67,7 @@ return [
     |
     */
 
-    'timezone' => config('setting.timezone'),
+    'timezone' => 'Asia/Ho_Chi_Minh',
 
     /*
     |--------------------------------------------------------------------------
@@ -229,5 +229,5 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Debugbar' => 'Barryvdh\Debugbar\Facade',
         'DataTables' => Yajra\DataTables\Facades\DataTables::class,
-    ],
+    ]
 ];
