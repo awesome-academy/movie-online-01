@@ -131,4 +131,6 @@ return [
     'birthday' => 'Ngày sinh',
     'location' => 'Location',
     'list_actor' => 'Danh sách diễn viên',
+    'favorite_film' => 'Phim yêu thích',
+    'to_save_film' => 'thêm phim vào yêu thích',
 ];

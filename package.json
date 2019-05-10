@@ -11,7 +11,7 @@
     },
     "devDependencies": {
         "axios": "^0.18",
-        "bootstrap": "^4.0.0",
+        "bootstrap": "^4.1.0",
         "cross-env": "^5.1",
         "jquery": "^3.2",
         "laravel-mix": "^4.0.7",
@@ -21,11 +21,6 @@
         "sass": "^1.15.2",
         "sass-loader": "^7.1.0",
         "vue": "^2.5.17",
-        "webpack-cli": "^3.3.1"
-    },
-    "dependencies": {
-        "bower": "^1.8.8",
-        "corejs-typeahead": "^1.2.1",
-        "typeahead.js": "^0.11.1"
+        "webpack-cli": "^3.3.2"
     }
 }

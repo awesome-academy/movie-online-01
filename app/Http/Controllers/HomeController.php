@@ -10,6 +10,8 @@ use App\Menu;
 use App\Vote;
 use App\Actor;
 use App\Comment;
+use App\Save;
+use Auth;
 
 class HomeController extends Controller
 {
@@ -22,55 +24,37 @@ class HomeController extends Controller
     {
         $films = Film::withCount('episodes')->orderBy('created_at', 'DESC')->get();
         $singleFilm = $films->filter(function ($value) {
-            
+
             return $value->episodes_count == 1;
         })->take(config('setting.take_film.homepage'));
         $seriesFilm = $films->filter(function ($value) {
-            
+
             return $value->episodes_count > 1;
         })->take(config('setting.take_film.homepage'));
 
         return view('client.homepage', compact('singleFilm', 'seriesFilm'));
     }
 
-    public function showfilmbymenu($id)
+    public function showFilmByMenu($id)
     {
         $menu = Menu::select('name')->where('id', $id)->firstOrFail();
         $filmByMenu = Menu::find($id)->films()->orderBy('created_at', 'DESC')->paginate(config('app.pagination'));
 
         return view('client.filmbymenupage', compact('menu', 'filmByMenu'));
     }
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         $details = Film::with('episodes')->findOrFail($id);
-        // return $details;
+        $favorite = false;
+        if (Auth::check()) {
+            if (Save::where([
+                ['film_id', '=', $details->id],
+                ['user_id', '=', Auth::id()],
+            ])->first()) {
+                $favorite = true;
+            };
+        }
         $slug = $details->episodes->first();
         if ($slug) {
             $slug = $details->episodes->first()->slug;
@@ -91,40 +75,29 @@ class HomeController extends Controller
         $countries = $details->country()->get();
         $comments = Comment::with('user')->where('film_id', $id)->orderBy('created_at', 'DESC')->get();
 
-        return view('client.detail', compact('details', 'votes', 'actors', 'genres', 'countries', 'comments', 'filmOfMenu', 'slug'));
+        return view('client.detail', compact('details', 'votes', 'actors', 'genres', 'countries', 'comments', 'filmOfMenu', 'slug', 'favorite'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    //save favorite film
+    public function saveFavoriteFilm($id)
     {
-        //
-    }
+        $user_id = Auth::id();
+        Save::create(
+            [
+                'user_id' => $user_id,
+                'film_id' => $id,
+            ]
+        );
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
+        return redirect()->back()->with('msg', __('Add favourite successfully'));
     }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
+    //remove favorite film
+    public function removeFavoriteFilm($id)
     {
-        //
+        $user_id = Auth::id();
+        $filmsave = User::find($user_id)->saves->where('film_id', $id)->first();
+        Save::find($filmsave->id)->delete();
+
+        return redirect()->back()->with('msg', __('Remove favourite successfully'));
     }
 }

@@ -60,6 +60,7 @@ return [
     'trailer' => 'TRAILER',
     'watch' => 'Watch Now',
     'favourite' => 'Add to Favourites',
+    'remove_favourite' => 'Remove Favourites',
     'mins' => 'Mins',
     'starring' => 'Starring',
     'genre' => 'Genres',
@@ -134,4 +135,7 @@ return [
     'birthday' => 'Birthday',
     'location' => 'Location',
     'list_actor' => 'List Actor',
+    'favorite_film' => 'Your favorite films',
+    'no_film' => 'No film here',
+    'to_save_film' => 'to add film to favourites',
 ];

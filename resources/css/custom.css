@@ -58,3 +58,33 @@
 .img_avatar {
     width: 100%;
 }
+
+.btn_save_film:hover {
+    background-color: #ef3131;
+    color: white !important;
+    border: solid 1px;
+    margin-bottom: 15px;
+}
+
+.btn_save_film {
+    border: solid 1px;
+}
+
+.authentication {
+    background: red;
+    height: 50px;
+    padding-top: 20px;
+    padding-left: 9px;
+    color: white;
+}
+
+.nofilm {
+    width: 80%;
+    text-align: center;
+    height: 30px;
+}
+
+.msg {
+    height: 34px;
+    color: #deff00;
+}
