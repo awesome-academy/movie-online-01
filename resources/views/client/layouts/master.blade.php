@@ -26,13 +26,16 @@
 
         @include('client.layouts.header')
         <!--     ./ Header Section   -->
+        @yield('profile')
             <!--     start Main Section   -->
             <div class="uk-container uk-container-center uk-margin-large-top uk-margin-large-bottom">
                 
                 <div class="uk-grid">
                     @yield('player')
                     
-                    @include('client.layouts.sidebar')
+                    @section('sidebar')
+                        @include('client.layouts.sidebar')
+                    @show
 
                     @yield('content')
                 </div>

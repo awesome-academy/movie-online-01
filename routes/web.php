@@ -17,12 +17,20 @@ Route::get('watch/{id}-{slug}.html', 'PlayerController@showEpisodes')->name('epi
 Route::get('showallfilms/{id}', 'HomeController@showFilmByMenu')->name('showfilmbymenu');
 
 Auth::routes();
-
+//Comment
 Route::post('comment', 'PlayerController@comment')->name('comment')->middleware('comment');
-
 //Search
 Route::get('/search', 'SearchController@searchFullText')->name('search');
 //Save favorite film
 Route::get('/savefavoritefilm/{id}', 'HomeController@saveFavoriteFilm')->name('savefavoritefilm');
 //Remove favorite film
 Route::get('/removefavoritefilm/{id}', 'HomeController@removeFavoriteFilm')->name('removefavoritefilm');
+//Profile
+Route::resource('profile', 'ProfileController')
+->except([
+	'index',
+	'store',
+	'create',
+	'destroy',
+	'edit',
+]);

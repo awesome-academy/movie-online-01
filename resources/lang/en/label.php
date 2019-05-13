@@ -117,15 +117,10 @@ return [
     'episode_management' => 'Episode Management',
     //Admin - User
     'add_user' => 'Add new user',
-    'username' => 'Username',
     'email' => 'Email',
-    'password' => 'Password',
-    'full_name' => 'Fullname',
     'avatar' => 'Avatar',
     'banned' => 'State',
     'role' => 'Role',
-    'edit' => 'edit',
-    'delete' => 'delete',
     //Admin-Actor
     'actor_manage' => 'Actors Management',
     'add_actor' => 'Add new Actor',
@@ -138,4 +133,6 @@ return [
     'favorite_film' => 'Your favorite films',
     'no_film' => 'No film here',
     'to_save_film' => 'to add film to favourites',
+    //Profile page
+    'status' => 'Status',
 ];

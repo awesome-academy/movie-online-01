@@ -1,9 +1,15 @@
  <!-- Sidebar -->
  <ul class="sidebar navbar-nav">
     <li class="nav-item active">
-        <a class="nav-link" href="index.html">
-           <i class="fas fa-fw fa-folder"></i>
-           <span>{{ trans('label.home') }}</span>
+        <a class="nav-link" href="{{ route('index') }}">
+           <i class="fas fa-home"></i>
+           <span>{{ trans('Movie Online') }}</span>
+       </a>
+   </li>
+   <li class="nav-item">
+        <a class="nav-link" href="#">
+           <i class="fas fa-tachometer-alt"></i>
+           <span>{{ trans('Dashboard') }}</span>
        </a>
    </li>
    <li class="nav-item">
@@ -13,7 +19,7 @@
         </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="#">
            <i class="fas fa-fw fa-folder"></i>
            <span>{{ trans('label.role_ma') }}</span>
         </a>
@@ -42,12 +48,12 @@
             <span>{{ trans('label.actor_ma') }}</span></a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="tables.html">
+        <a class="nav-link" href="#">
             <i class="fas fa-fw fa-table"></i>
             <span>{{ trans('label.film_upload') }}</span></a>
         </li>
     <li class="nav-item">
-        <a class="nav-link" href="tables.html">
+        <a class="nav-link" href="#">
             <i class="fas fa-fw fa-table"></i>
             <span>{{ trans('label.country_ma') }}</span></a>
         </li>

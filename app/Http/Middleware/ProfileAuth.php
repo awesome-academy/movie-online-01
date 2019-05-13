@@ -4,8 +4,9 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Support\Facades\Auth;
+use User;
 
-class AdminAuth
+class ProfileAuth
 {
     /**
      * Handle an incoming request.
@@ -16,7 +17,7 @@ class AdminAuth
      */
     public function handle($request, Closure $next)
     {
-        if (!Auth::check() || Auth::user()->role_id < 1) {
+        if (!Auth::check() || Auth::user()->id != $request->profile->id) {
             return redirect(route('login'));
         }
         
