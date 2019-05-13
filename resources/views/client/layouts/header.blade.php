@@ -57,6 +57,7 @@
                     <div class="uk-dropdown uk-dropdown-navbar">
                         <ul class="uk-nav uk-nav-navbar">
                             <li>
+                                <a href="{{ route('profile.show', Auth::user()->id) }}">{{ __('Profile') }}</a>
                                 <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
                                 </a>

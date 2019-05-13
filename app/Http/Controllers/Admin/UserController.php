@@ -31,6 +31,6 @@ class UserController extends Controller
                     ->make(true);
                 }
 
-           return view('backend.user.index', compact('users'));
+           return view('backend.user.index');
     }
 }

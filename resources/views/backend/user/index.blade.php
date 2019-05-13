@@ -11,7 +11,7 @@
             <tr>
                 <th>#</th>
                 <th>{{ trans('label.username') }}</th>
-                <th>{{ trans('label.email') }}</th>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+                <th>{{ trans('label.email') }}</th>
                 <th>{{ trans('label.full_name') }}</th>
                 <th>{{ trans('label.avatar') }}</th>
                 <th>{{ trans('label.action') }}</th>
