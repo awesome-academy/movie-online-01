@@ -120,8 +120,12 @@ return [
     'email' => 'Email',
     'avatar' => 'Avatar',
     'banned' => 'State',
-    'role' => 'Role',
-    //Admin-Actor
+    'role' => 'Role',  
+    'banned' => 'banned',
+    'nobanned' => 'active',   
+    'state' => 'status',  
+    'error' => 'Errors: ',                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
+    //Admin-Actor				        
     'actor_manage' => 'Actors Management',
     'add_actor' => 'Add new Actor',
     'update_actor' => 'Update Actor',
