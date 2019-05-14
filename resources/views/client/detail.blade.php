@@ -50,22 +50,18 @@
                          <!--     start Tab Panel 1 (Reviews Sections) -->
                         <li>
                             <h2 class="uk-text-contrast uk-margin-large-top">{{ $details->title_en }}
-                                <span class="rating uk-margin-small-left uk-h4 uk-text-warning">
-                                <i class="uk-icon-star "></i>
-                                <i class="uk-icon-star"></i>
-                                <i class="uk-icon-star"></i>
-                                <i class="uk-icon-star"></i>
-                                <i class="uk-icon-star"></i>
-                                </span>
+                                <div id="rateit_star1" data-productid="{{ $details->id }}" class="rateit" data-rateit-value="{{ Auth::check() ? $voteOfUser->point : $votes }}"></div>
                             </h2>
                             <ul class="uk-subnav uk-subnav-line">
-                                <li >
+                                <li>
                                     <i class="uk-icon-star uk-margin-small-right"></i>
-                                    @if ($votes == 0)
-                                        0
-                                    @else
-                                        {{ $votes }}
-                                    @endif     
+                                    <div class="vote">
+                                        @if ($votes == 0)
+                                            0
+                                        @else
+                                            {{ $votes }}
+                                        @endif
+                                    </div>
                                 </li>
                                 <li><i class="uk-icon-clock-o uk-margin-small-right"></i> {{ $details->duration }} {{ __('label.mins') }}</li>
                                 <li>{{ $details->year }}</li>
@@ -142,14 +138,14 @@
                                 </ul>
                             </div>
                         </li>
-                           <!--     ./ Tab Panel 2  -->
-                           <!--     start Tab Panel 3 (Trailer Section)  -->
-                            <li>
-                                <div class="uk-cover-custom uk-cover uk-margin-top">
-                                    <iframe class = "data-uk-cover-custom data-uk-cover" src="https://www.youtube.com/embed/{{ $details->trailer }}?autoplay=0&amp;controls=1&amp;showinfo=1&amp;rel=0&amp;loop=1&amp;modestbranding=1&amp;wmode=transparent" frameborder="0" allowfullscreen=""></iframe>
-                                </div>
-                            </li>
-                           <!--     ./ Tab Panel 3  -->
+                       <!--     ./ Tab Panel 2  -->
+                       <!--     start Tab Panel 3 (Trailer Section)  -->
+                        <li>
+                            <div class="uk-cover-custom uk-cover uk-margin-top">
+                                <iframe class = "data-uk-cover-custom data-uk-cover" src="https://www.youtube.com/embed/{{ $details->trailer }}?autoplay=0&amp;controls=1&amp;showinfo=1&amp;rel=0&amp;loop=1&amp;modestbranding=1&amp;wmode=transparent" frameborder="0" allowfullscreen=""></iframe>
+                            </div>
+                        </li>
+                       <!--     ./ Tab Panel 3  -->
                     </ul>
                 </div>
             </div>  
@@ -181,8 +177,41 @@
 @stop 
 @push('script')
 <script>
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
     function authenticate() {
         document.getElementById("authentication").classList.add('authentication');
     }
+
+    $(function () {
+       $('#rateit_star1').bind('rated', function (e) {
+        @if (!Auth::check())
+            alert('{{ __('Please Login to vote') }}');
+        @endif
+        var ri = $(this);
+        $.ajax({
+            type: 'POST',
+            dataType: 'json',
+            data: {
+                _token: '{{ csrf_token() }}', 
+                point: ri.rateit('value'),
+                film_id: ri.data('productid'),
+                user_id: '{{ Auth::id() }}',
+            },
+            url: '{{ route('vote') }}',
+            success: function(data) {
+                $.get("{{ route('show', $details->id) }}", function (data) {
+                    $('.vote').html(data);
+                })
+            },
+            error: function(data) {
+                console.log('error');
+            }
+         })
+     });
+   });
 </script>
 @endpush

@@ -22,7 +22,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $films = Film::withCount('episodes')->orderBy('created_at', 'DESC')->get();
+        $films = Film::withCount('episodes')->with('votes')->orderBy('created_at', 'DESC')->get();
         $singleFilm = $films->filter(function ($value) {
 
             return $value->episodes_count == 1;
@@ -62,6 +62,14 @@ class HomeController extends Controller
             $slug = Null;
         }
         $votes = round($details->votes->avg('point'), 1);
+        $voteOfUser = [];
+        if (Auth::check()) {
+            $voteOfUser = Vote::where('user_id', Auth::id())->where('film_id', $details->id)->firstOrFail();
+        }
+        if (request()->ajax()) {
+            return response()->json($votes);
+        }
+        
         $actors = $details->actors;
 
         // Get menus of film
@@ -75,7 +83,7 @@ class HomeController extends Controller
         $countries = $details->country()->get();
         $comments = Comment::with('user')->where('film_id', $id)->orderBy('created_at', 'DESC')->get();
 
-        return view('client.detail', compact('details', 'votes', 'actors', 'genres', 'countries', 'comments', 'filmOfMenu', 'slug', 'favorite'));
+        return view('client.detail', compact('details', 'votes', 'actors', 'genres', 'countries', 'comments', 'filmOfMenu', 'slug', 'favorite', 'voteOfUser'));
     }
 
     //save favorite film
@@ -100,4 +108,24 @@ class HomeController extends Controller
 
         return redirect()->back()->with('msg', __('Remove favourite successfully'));
     }
+
+    //Vote
+    public function vote(Request $request)
+    {
+        if ($request->ajax()) {
+            Vote::updateOrCreate([
+                'user_id' => Auth::id(),
+                'film_id' => $request->film_id,
+            ],
+            [
+                'point' => $request->point,
+                'user_id' => Auth::id(),
+                'film_id' => $request->film_id,
+            ]
+        );
+        }
+
+        return response()->json();
+    }
+
 }

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-gb" dir="ltr">
     <head>
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>{{ __('label.title') }}</title>
@@ -16,6 +17,8 @@
         <link rel="stylesheet" href="{{ asset('bower_components/assets_template/assets/css/styles.css') }}">
         <!--    custom style CSS using laravelmix -->
         <link rel="stylesheet" href="{{ asset('custom-css/custom.css') }}">
+        <!--    rateit css -->
+        <link rel="stylesheet" href="{{ asset('jquery_rateit/rateit.css') }}">
         <!-- add -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
@@ -61,6 +64,7 @@
         <script src="{{ asset('bower_components/assets_template/assets/js/simplebar.min.js') }}"></script>
         <script src="{{ asset('bower_components/assets_template/assets/js/components/grid.min.js') }}"></script>
         <script src="{{ asset('typeahead/typeahead.bundle.min.js') }}"></script>
+        <script src="{{ asset('jquery_rateit/jquery.rateit.js') }}"></script>
         <!-- App scripts -->
         @stack('script')
     </body>

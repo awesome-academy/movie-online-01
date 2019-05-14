@@ -8,23 +8,17 @@
             <div>
                 <div class="uk-overlay uk-overlay-hover">
                     @if ($key->thumb)
-                        <img src="{{ asset($key->thumb) }}" alt="Image" class="img_size  overlay overlay-home">
+                        <img src="{{ asset($key->thumb) }}" alt="Image" class="img_size overlay overlay-home">
                     @else
                         <img src="{{ asset(config('setting.client_image.placeholder') . 'placeholder.png') }}" alt="Image" class="img_size overlay overlay-home">
                     @endif
-                    <div class="uk-overlay-panel uk-overlay-fade uk-overlay-background  uk-overlay-icon"></div>
+                    <div class="uk-overlay-panel uk-overlay-fade uk-overlay-background uk-overlay-icon"></div>
                     <a class="uk-position-cover" href="{{ route('show', ['id' => $key->id]) }}"></a>
                 </div>
-                <div class="uk-panel" >        
+                <div class="uk-panel" >
                     <h5 class="uk-panel-title">{{ $key->title_en }}</h5>
                     <p>
-                        <span class="rating">
-                            <i class="uk-icon-star"></i>
-                            <i class="uk-icon-star"></i>
-                            <i class="uk-icon-star"></i>
-                            <i class="uk-icon-star"></i>
-                            <i class="uk-icon-star"></i>
-                        </span>
+                        <div class="rateit" data-rateit-value="{{ round($key->votes->avg('point'), 1) }}" data-rateit-readonly="true"></div>
                         <span class="uk-float-right">{{ $key->year }}</span>
                     </p>
                 </div>
@@ -38,23 +32,17 @@
             <div>
                 <div class="uk-overlay uk-overlay-hover">
                     @if ($key->thumb)
-                        <img src="{{ asset($key->thumb) }}" alt="Image" class="img_size  overlay overlay-home">
+                        <img src="{{ asset($key->thumb) }}" alt="Image" class="img_size overlay overlay-home">
                     @else
-                        <img src="{{ asset(config('setting.client_image.placeholder') . 'placeholder.png') }}" alt="Image" class="img_size  overlay overlay-home">
+                        <img src="{{ asset(config('setting.client_image.placeholder') . 'placeholder.png') }}" alt="Image" class="img_size overlay overlay-home">
                     @endif
-                    <div class="uk-overlay-panel uk-overlay-fade uk-overlay-background  uk-overlay-icon"></div>
+                    <div class="uk-overlay-panel uk-overlay-fade uk-overlay-background uk-overlay-icon"></div>
                     <a class="uk-position-cover" href="{{ route('show', ['id' => $key->id]) }}"></a>
                 </div>
                 <div class="uk-panel" > 
                     <h5 class="uk-panel-title">{{ $key->title_en }}</h5>
                     <p>
-                        <span class="rating">
-                            <i class="uk-icon-star"></i>
-                            <i class="uk-icon-star"></i>
-                            <i class="uk-icon-star"></i>
-                            <i class="uk-icon-star"></i>
-                            <i class="uk-icon-star"></i>
-                        </span>
+                        <div class="rateit" data-rateit-value="{{ round($key->votes->avg('point'), 1) }}" data-rateit-readonly="true"></div>
                         <span class="uk-float-right">{{ $key->year }}</span>
                     </p>
                 </div>
