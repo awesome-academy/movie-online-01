@@ -131,14 +131,14 @@ class FilmController extends Controller
             $film = Film::findOrFail($film->id);
             if ($request->menu) {
                 foreach ($request->menu as $menu) {
-                    $film->menus()->attach($menu);
+                    $film->menus()->syncWithoutDetaching($menu);
                 }
             }
 
             // Insert actor_id from Create Film Page to table film_actor with latest film_id
             if ($request->actor) {
                 foreach ($request->actor as $actor) {
-                    $film->actors()->attach($actor);
+                    $film->actors()->syncWithoutDetaching($actor);
                 }
             }
             
