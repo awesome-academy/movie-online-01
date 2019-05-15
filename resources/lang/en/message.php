@@ -16,4 +16,3 @@ return [
     'digits_between' => 'The :attribute must be between :min and :max digits.',
     'min' => 'The :attribute may be greater than :min characters.',
 ];
-

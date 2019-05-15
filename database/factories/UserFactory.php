@@ -23,7 +23,7 @@ $factory->define(User::class, function (Faker $faker) {
         'password' => $faker->password,
         'full_name' => $faker->name,
         'banned' => $faker->numberBetween($min = 1, $max = 3),
-        'role_id' => $faker->numberBetween($min = 1, $max = 5),
+        'role_id' => $faker->numberBetween($min = 1, $max = 2),
         'deleted_at' => $faker->dateTime(),
         'remember_token' => Str::random(10),
         'created_at' => $faker->dateTime(),

@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>{{ trans('label.title') }}</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Custom fonts for this template-->
     <link href="{{ asset('bower_components/mvo1/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
     <!-- Page level plugin CSS-->

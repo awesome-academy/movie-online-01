@@ -122,6 +122,7 @@ return [
     'role' => 'Vai trò',
     'edit' => 'sửa',
     'delete' => 'xóa',
+    'error' => 'lỗi',
     //Admin-Actor
     'actor_manage' => 'Quản lý diễn viên',
     'add_actor' => 'Thêm diễn viên',
