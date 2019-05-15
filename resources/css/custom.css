@@ -18,9 +18,22 @@
     height: 260px;
 }
 
+.film-actor {
+    margin: 10px;
+}
+
+.text-color {
+    color: #46E1FF;
+}
+
 .overlay-sidebar {
     width: 140px;
     height: 202px;
+}
+
+.overlay-actors {
+    width: 250px;
+    height: 165px;
 }
 
 .avatarimg {

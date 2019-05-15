@@ -128,4 +128,13 @@ class HomeController extends Controller
         return response()->json();
     }
 
+    //Actor detail
+    public function actorDetail(Actor $actor)
+    {
+        $data = $actor->films;
+        $defaultImg = $actor->img == null ? asset(config('setting.client_image.placeholder') . 'placeholder.png') : $actor->img;
+
+        return view('client.actor', compact('data', 'actor', 'defaultImg'));
+    }
+
 }
