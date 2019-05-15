@@ -50,7 +50,7 @@
                          <!--     start Tab Panel 1 (Reviews Sections) -->
                         <li>
                             <h2 class="uk-text-contrast uk-margin-large-top">{{ $details->title_en }}
-                                <div id="rateit_star1" data-productid="{{ $details->id }}" class="rateit" data-rateit-value="{{ Auth::check() ? $voteOfUser->point : $votes }}"></div>
+                                <div id="rateit_star1" data-productid="{{ $details->id }}" class="rateit" data-rateit-value="{{ $voteOfUser->point ?? $votes }}"></div>
                             </h2>
                             <ul class="uk-subnav uk-subnav-line">
                                 <li>
