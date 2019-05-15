@@ -64,7 +64,7 @@ class HomeController extends Controller
         $votes = round($details->votes->avg('point'), 1);
         $voteOfUser = [];
         if (Auth::check()) {
-            $voteOfUser = Vote::where('user_id', Auth::id())->where('film_id', $details->id)->firstOrFail();
+            $voteOfUser = Vote::where('user_id', Auth::id())->where('film_id', $details->id)->first();
         }
         if (request()->ajax()) {
             return response()->json($votes);

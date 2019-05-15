@@ -19,13 +19,7 @@
                 <div class="uk-panel" >        
                     <h5 class="uk-panel-title">{{ $key->title_en }}</h5>
                     <p>
-                        <span class="rating">
-                            <i class="uk-icon-star"></i>
-                            <i class="uk-icon-star"></i>
-                            <i class="uk-icon-star"></i>
-                            <i class="uk-icon-star"></i>
-                            <i class="uk-icon-star"></i>
-                        </span>
+                        <div class="rateit" data-rateit-value="{{ round($key->votes->avg('point'), 1) }}" data-rateit-readonly="true"></div>
                         <span class="uk-float-right">{{ $key->year }}</span>
                     </p>
                 </div>
