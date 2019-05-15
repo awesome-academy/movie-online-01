@@ -11,7 +11,7 @@
                             <article class="uk-comment uk-panel uk-panel-space uk-panel-box-secondary">
                                 <a href="{{ route('show', ['id' => $single->id]) }}">
                                     @if ($single->thumb)
-                                    <img src="{{ asset($single->thumb) }}" alt="Image" class="img_size  overlay overlay-sidebar">
+                                    <img src="{{ asset($single->thumb) }}" alt="Image" class="img_size overlay overlay-sidebar">
                                     @else
                                     <img src="{{ asset(config('setting.client_image.placeholder') . 'placeholder.png') }}" alt="Image" class="img_size overlay overlay-sidebar">
                                     @endif
@@ -21,13 +21,7 @@
                                     {{ __('label.view') }}: {{ $single->viewed_day }}
                                 </div>
                                 <div id="tm-right-section">
-                                    <span class="rating">
-                                        <i class="uk-icon-star"></i>
-                                        <i class="uk-icon-star"></i>
-                                        <i class="uk-icon-star"></i>
-                                        <i class="uk-icon-star"></i>
-                                        <i class="uk-icon-star"></i>
-                                    </span>
+                                    <div class="rateit" data-rateit-value="{{ round($single->votes->avg('point'), 1) }}" data-rateit-readonly="true"></div>
                                 </div>
                             </article>
                         </li>
@@ -51,7 +45,7 @@
                             <article class="uk-comment uk-panel uk-panel-space uk-panel-box-secondary">
                                 <a href="{{ route('show', ['id' => $single->id]) }}">
                                     @if ($single->thumb)
-                                    <img src="{{ asset($single->thumb) }}" alt="Image" class="img_size  overlay overlay-sidebar">
+                                    <img src="{{ asset($single->thumb) }}" alt="Image" class="img_size overlay overlay-sidebar">
                                     @else
                                     <img src="{{ asset(config('setting.client_image.placeholder') . 'placeholder.png') }}" alt="Image" class="img_size overlay overlay-sidebar">
                                     @endif
@@ -61,13 +55,7 @@
                                     {{ __('label.view') }}: {{ $single->viewed_day }}
                                 </div>
                                 <div id="tm-right-section">
-                                    <span class="rating">
-                                        <i class="uk-icon-star"></i>
-                                        <i class="uk-icon-star"></i>
-                                        <i class="uk-icon-star"></i>
-                                        <i class="uk-icon-star"></i>
-                                        <i class="uk-icon-star"></i>
-                                    </span>
+                                    <div class="rateit" data-rateit-value="{{ round($single->votes->avg('point'), 1) }}" data-rateit-readonly="true"></div>
                                 </div>
                             </article>
                         </li>
@@ -87,7 +75,7 @@
                             <article class="uk-comment uk-panel uk-panel-space uk-panel-box-secondary">
                                 <a href="{{ route('show', ['id' => $series->id]) }}">
                                     @if ($series->thumb)
-                                    <img src="{{ asset($series->thumb) }}" alt="Image" class="img_size  overlay overlay-sidebar">
+                                    <img src="{{ asset($series->thumb) }}" alt="Image" class="img_size overlay overlay-sidebar">
                                     @else
                                     <img src="{{ asset(config('setting.client_image.placeholder') . 'placeholder.png') }}" alt="Image" class="img_size overlay overlay-sidebar">
                                     @endif
@@ -97,13 +85,7 @@
                                     {{ __('label.view') }}: {{ $series->viewed_day }}
                                 </div>
                                 <div id="tm-right-section">
-                                    <span class="rating">
-                                        <i class="uk-icon-star"></i>
-                                        <i class="uk-icon-star"></i>
-                                        <i class="uk-icon-star"></i>
-                                        <i class="uk-icon-star"></i>
-                                        <i class="uk-icon-star"></i>
-                                    </span>
+                                    <div class="rateit" data-rateit-value="{{ round($single->votes->avg('point'), 1) }}" data-rateit-readonly="true"></div>
                                 </div>
                             </article>
                         </li>

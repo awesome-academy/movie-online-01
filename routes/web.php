@@ -34,3 +34,5 @@ Route::resource('profile', 'ProfileController')
 	'destroy',
 	'edit',
 ]);
+//Vote
+Route::post('vote', 'HomeController@vote')->name('vote');

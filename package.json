@@ -22,5 +22,9 @@
         "sass-loader": "^7.1.0",
         "vue": "^2.5.17",
         "webpack-cli": "^3.3.2"
+    },
+    "dependencies": {
+        "corejs-typeahead": "^1.2.1",
+        "jquery.rateit": "^1.1.2"
     }
 }
