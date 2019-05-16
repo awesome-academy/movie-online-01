@@ -134,4 +134,10 @@ return [
     'list_actor' => 'Danh sách diễn viên',
     'favorite_film' => 'Phim yêu thích',
     'to_save_film' => 'thêm phim vào yêu thích',
+    //Admin-Role
+    'role_ma' => 'Quản lý vai trò',
+    'rolename' => 'Vai trò',
+    'confirm' => 'Bạn có chắc muốn xóa không?',
+    'alert' => 'Không thể xóa, role này có chứa rất nhiều người dùng',
+    'add_role' => 'Thêm mới',
 ];
