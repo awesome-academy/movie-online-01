@@ -36,3 +36,5 @@ Route::resource('profile', 'ProfileController')
 ]);
 //Vote
 Route::post('vote', 'HomeController@vote')->name('vote');
+//actor
+Route::get('actors/{actor}', 'HomeController@actorDetail')->name('actor');

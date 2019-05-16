@@ -73,7 +73,7 @@
                                 <dd>
                                     <ul class="uk-subnav">
                                         @foreach ($actors as $actor)
-                                            <li><a href="#">{{ $actor->name_real }}</a></li>
+                                            <li><a href="{{ route('actor', $actor->id) }}">{{ $actor->name_real }}</a></li>
                                         @endforeach
                                         <li><a href="#"></a></li>
                                     </ul>
@@ -82,7 +82,7 @@
                                 <dd>
                                     <ul class="uk-subnav">
                                     @foreach ($genres as $genre)
-                                        <li><a href="#">{{ $genre->name }}</a></li>
+                                        <li><a href="{{ route('showfilmbymenu', $genre->id) }}">{{ $genre->name }}</a></li>
                                     @endforeach
                                     <li><a href="#"></a></li>
                                     </ul>

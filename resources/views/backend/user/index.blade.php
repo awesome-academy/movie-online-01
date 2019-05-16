@@ -139,8 +139,7 @@
                 },
                 error: function(data) {
                     console.log("{{ trans('label.error') }}", data);
-                    $('#saveBtn').html('{{ trans('
-                        label.save ') }}');
+                    $('#saveBtn').html("{{ trans('label.save') }}");
                 }
             });
         });
