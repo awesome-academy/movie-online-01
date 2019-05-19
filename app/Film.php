@@ -75,4 +75,9 @@ class Film extends Model
     {
         return $this->belongsTo('App\User', 'user_id');
     }
+
+    public function views()
+    {
+        return $this->hasMany('App\View');
+    }
 }
