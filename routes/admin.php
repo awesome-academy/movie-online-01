@@ -29,3 +29,5 @@ Route::resource('film/{id}/episode', 'EpisodeController');
 Route::resource('user', 'UserController');
 //Actors Manage
 Route::resource('actor', 'ActorController');
+//Roles Manage
+Route::resource('role', 'RoleController');

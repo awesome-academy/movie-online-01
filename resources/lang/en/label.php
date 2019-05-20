@@ -120,12 +120,12 @@ return [
     'email' => 'Email',
     'avatar' => 'Avatar',
     'banned' => 'State',
-    'role' => 'Role',  
+    'role' => 'Role', 
     'banned' => 'banned',
     'nobanned' => 'active',   
     'state' => 'status',  
-    'error' => 'Errors: ',                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
-    //Admin-Actor				        
+    'error' => 'Errors: ',                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+    //Admin-Actor
     'actor_manage' => 'Actors Management',
     'add_actor' => 'Add new Actor',
     'update_actor' => 'Update Actor',
@@ -139,4 +139,10 @@ return [
     'to_save_film' => 'to add film to favourites',
     //Profile page
     'status' => 'Status',
+    //Admin-Role
+    'role_ma' => 'Role management',
+    'rolename' => 'Role',
+    'confirm' => 'Are you sure to delete?',
+    'alert' => 'Please be careful, make sure that no user is relevant to this role before deleting.',
+    'add_role' => 'Add new role',
 ];
