@@ -38,3 +38,6 @@ Route::resource('profile', 'ProfileController')
 Route::post('vote', 'HomeController@vote')->name('vote');
 //actor
 Route::get('actors/{actor}', 'HomeController@actorDetail')->name('actor');
+//Social login
+Route::get('/redirect/{social}', 'Auth\SocialAuthController@redirect')->name('redirect');
+Route::get('/callback/{social}', 'Auth\SocialAuthController@callback')->name('callback');
