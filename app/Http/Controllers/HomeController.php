@@ -72,16 +72,32 @@ class HomeController extends Controller
         
         $actors = $details->actors;
 
-        // Get menus of film
-        $genres = $details->menus;
+        // Get genres of film
+        $genres = Film::findOrFail($id)->menus()
+            ->distinct('menu_id')
+            ->take(config('setting.take_genre.detail_page'))
+            ->get();
+
+        $genres_id = [];
+        foreach ($genres as $genre) {
+            array_push($genres_id, $genre->id);
+        }
 
         // Get all film of menu in film details where film_id <> $details->id
-        $filmOfMenu = [];
-        foreach ($genres as $genre) {
-            array_push($filmOfMenu, Menu::find($genre->id)->films->where('id', '<>', $details->id));
-        }
+        $filmOfMenu = Film::with([
+            'menus' => function ($query) use ($genres_id) {
+                $query->whereIn('menu_id', $genres_id);
+            }
+        ])
+            ->where('id', '<>', $id)
+            ->take(config('setting.take_film.film_relate'))
+            ->get();
+
         $countries = $details->country()->get();
-        $comments = Comment::with('user')->where('film_id', $id)->orderBy('created_at', 'DESC')->get();
+        $comments = Comment::with('user')
+            ->where('film_id', $id)
+            ->orderBy('created_at', 'DESC')
+            ->get();
 
         return view('client.detail', compact('details', 'votes', 'actors', 'genres', 'countries', 'comments', 'filmOfMenu', 'slug', 'favorite', 'voteOfUser'));
     }
