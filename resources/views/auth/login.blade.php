@@ -13,9 +13,14 @@
                 <div class="uk-margin-large-bottom  uk-animation-reverse uk-animation-scale uk-animation-hover">
                     <img class="img-logo-custom uk-margin uk-margin-remove" alt="logo" src="{{ asset(config('setting.client_image.placeholder') . 'logo.svg') }}"/>
                 </div>
+                    <h2 class="uk-margin-large-bottom uk-text-muted">{{ __('label.login') }}</h2>
+                <div class="uk-form-row">
+                    <a href="{{ route('redirect', 'facebook') }}" class="uk-button uk-button-social uk-width-1-4 uk-button-facebook uk-margin-right"><i class="uk-icon-medium uk-icon-facebook"></i></a>
+                    <a href="{{ route('redirect', 'google') }}" class="uk-button uk-button-social uk-width-1-4  uk-button-google "><i class="uk-icon-medium uk-icon-google-plus"></i></a>
+                    <p class="uk-text-center uk-margin-large-top">{{ __('OR') }}</p>
+                </div>
                 <form class=" uk-form" method="POST" action="{{ route('login') }}">
                     @csrf
-                    <h2 class="uk-margin-large-bottom uk-text-muted">{{ __('label.login') }}</h2>
                     <div class="uk-form-row">
                         <div class="uk-form-icon uk-form-icon-flip uk-width-1-1">
                             <input id="username" type="text" class="uk-width-1-1{{ $errors->has('email') || $errors->has('username') ? 'is-invalid' : '' }}" name="username" value="{{ old('username') }}" required placeholder="{{ __('label.userOrEmail') }}">
