@@ -156,12 +156,11 @@
                     <div class="uk-slidenav-position uk-margin">
                         <ul class="uk-slideset uk-grid uk-flex-center">
                             @foreach ($filmOfMenu as $key)
-                                @foreach ($key as $element)
-                                        <li>
-                                            <a href="{{ route('show', ['id' => $element->id ]) }}"><img src="{{ asset(config('setting.client_image.placeholder') . 'placeholder.png') }}" alt="">
-                                            </a>
-                                        </li>
-                                @endforeach
+                                <li>
+                                    <a href="{{ route('show', ['id' => $key->id ]) }}">
+                                        <img src="{{ asset($key->thumb) }}" alt="">
+                                    </a>
+                                </li>
                             @endforeach
                         </ul>
                         <a href="#" class="uk-slidenav uk-slidenav-contrast uk-slidenav-previous" data-uk-slideset-item="previous"></a>
