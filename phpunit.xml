@@ -23,13 +23,15 @@
         </whitelist>
     </filter>
     <php>
-         <env name="APP_ENV" value="testing"/>
+        <env name="APP_ENV" value="testing"/>
         <env name="BCRYPT_ROUNDS" value="4"/>
         <env name="CACHE_DRIVER" value="array"/>
-        <env name="MAIL_DRIVER" value="array"/>
+        <env name="MAIL_DRIVER" value="log"/>
         <env name="QUEUE_CONNECTION" value="sync"/>
         <env name="SESSION_DRIVER" value="array"/>
-        <env name="DB_CONNECTION" value="mysql"/>
-        <env name="DB_DATABASE" value="movie_online_01"/>
+        <env name="DB_CONNECTION" value="sqlite"/>
+        <env name="DB_DATABASE" value=":memory:"/>
+        <env name="API_DEBUG" value="false"/>
+        <ini name="memory_limit" value="512M" />
     </php>
 </phpunit>

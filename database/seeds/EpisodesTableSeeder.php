@@ -11,9 +11,6 @@ class EpisodesTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Episode::class, 20)->create([
-            'url' => 'https://www.youtube.com/watch?v=ZIr3hTJDo8s&t=0s',
-            'slug' => 'slug_film'
-    	]);
+        factory(App\Episode::class, 50)->create();
     }
 }

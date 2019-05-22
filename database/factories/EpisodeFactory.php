@@ -9,7 +9,9 @@ $factory->define(Episode::class, function (Faker $faker) {
         'film_id' => $faker->numberBetween($min = 1, $max = 20),
         'user_id' => $faker->numberBetween($min = 1, $max = 20),
         'name' => $faker->name,
-       	'created_at' => $faker->dateTime(),
-    	'updated_at' => $faker->dateTime()
+        'url' => 'ZIr3hTJDo8s',
+        'slug' => Str::slug($faker->name, '-'),
+        'created_at' => $faker->dateTime(),
+        'updated_at' => $faker->dateTime(),
     ];
 });
