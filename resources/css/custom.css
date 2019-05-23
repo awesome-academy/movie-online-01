@@ -101,3 +101,7 @@
     height: 34px;
     color: #deff00;
 }
+
+.uk-dropdown-custom {
+    width: auto;
+}

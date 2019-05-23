@@ -19,6 +19,8 @@
         <link rel="stylesheet" href="{{ asset('custom-css/custom.css') }}">
         <!--    rateit css -->
         <link rel="stylesheet" href="{{ asset('jquery_rateit/rateit.css') }}">
+        <!--    flag-icon-css -->
+        <link rel="stylesheet" href="{{ asset('bower_components/flag-icon-css/css/flag-icon.min.css') }}">
         <!-- add -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>

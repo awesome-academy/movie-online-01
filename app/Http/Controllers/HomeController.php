@@ -113,7 +113,7 @@ class HomeController extends Controller
             ]
         );
 
-        return redirect()->back()->with('msg', __('Add favourite successfully'));
+        return redirect()->back()->with('msg', __('label.add_success'));
     }
     //remove favorite film
     public function removeFavoriteFilm($id)
@@ -122,7 +122,7 @@ class HomeController extends Controller
         $filmsave = User::find($user_id)->saves->where('film_id', $id)->first();
         Save::find($filmsave->id)->delete();
 
-        return redirect()->back()->with('msg', __('Remove favourite successfully'));
+        return redirect()->back()->with('msg', __('label.remove_success'));
     }
 
     //Vote
@@ -151,6 +151,13 @@ class HomeController extends Controller
         $defaultImg = $actor->img == null ? asset(config('setting.client_image.placeholder') . 'placeholder.png') : $actor->img;
 
         return view('client.actor', compact('data', 'actor', 'defaultImg'));
+    }
+
+    public function changeLanguage($language)
+    {
+        \Session::put('change_language', $language);
+
+        return redirect()->back();
     }
 
 }
