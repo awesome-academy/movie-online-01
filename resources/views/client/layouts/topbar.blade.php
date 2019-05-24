@@ -1,6 +1,28 @@
 <nav id="tm-topbar" class=" uk-navbar uk-contrast ">
     <div class="uk-container uk-container-center ">
         <ul class="uk-navbar-nav uk-hidden-small">
+            <li class="uk-parent" data-uk-dropdown>
+                @if (session('change_language') == 'vi')
+                    <a>
+                        <i class="uk-icon-small"><span class="flag-icon flag-icon-vn"></span></i>
+                    </a>
+                @else
+                    <a>
+                        <i class="uk-icon-small"><span class="flag-icon flag-icon-gb"></span></i>
+                    </a>
+                @endif
+                <div class="uk-dropdown uk-dropdown-custom uk-dropdown-navbar">
+                    @if (session('change_language') == 'en' || !session('change_language'))
+                        <a href="{{ route('language', ['vi']) }}">
+                            <i class="uk-icon-small"><span class="flag-icon flag-icon-vn"></span></i>
+                        </a>
+                    @else
+                        <a href="{{ route('language', ['en']) }}">
+                            <i class="uk-icon-small"><span class="flag-icon flag-icon-gb"></span></i>
+                        </a>
+                    @endif
+                </div>
+            </li>
             <li>
                 <a href="#"><i class="uk-icon-facebook-square uk-icon-small"></i></a>
             </li>

@@ -17,6 +17,7 @@
   ],
   "dependencies": {
     "mvo1": "https://github.com/nguyenthithu1612/mvo1.git",
-    "assets_template": "https://github.com/hungtb95/assets_template.git"
+    "assets_template": "https://github.com/hungtb95/assets_template.git",
+    "flag-icon-css": "^3.3.0"
   }
 }

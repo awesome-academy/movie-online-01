@@ -12,6 +12,8 @@ return [
     'log_in' => 'Log In',
     'manage' => 'Manage',
     'hello' => 'Hello',
+    'profile' => 'Profile',
+    'logout' => 'Logout',
     //sidebar
     'view' => 'Views',
     'hot_single' => 'HOT SINGLE MOVIES',
@@ -65,6 +67,8 @@ return [
     'starring' => 'Starring',
     'genre' => 'Genres',
     'country' => 'Countries',
+    'add_success' => 'Add favourite successfully',
+    'remove_success' => 'Remove favourite successfully',
     //details page
     //review tab
     'post_review' => 'Post a Review',

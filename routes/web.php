@@ -41,3 +41,5 @@ Route::get('actors/{actor}', 'HomeController@actorDetail')->name('actor');
 //Social login
 Route::get('/redirect/{social}', 'Auth\SocialAuthController@redirect')->name('redirect');
 Route::get('/callback/{social}', 'Auth\SocialAuthController@callback')->name('callback');
+//i18n
+Route::get('language/{language}', 'HomeController@changeLanguage')->name('language');

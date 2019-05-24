@@ -1,8 +1,8 @@
 <?php
 return [
-    'title' => 'Phim Oline - Trang chủ',
+    'title' => 'Phim Online - Trang chủ',
     //header
-    'title_header' => 'Phim Oline',
+    'title_header' => 'Phim Online',
     'home' => 'Trang chủ',
     'policy' => 'Chính sách bảo mật',
     'terms' => 'Điều khoản và điều kiện',
@@ -12,6 +12,8 @@ return [
     'log_in' => 'Đăng nhập',
     'manage' => 'Quản Lý',
     'hello' => 'Xin Chào',
+    'profile' => 'Thông tin cá nhân',
+    'logout' => 'Đăng xuất',
     //sidebar
     'view' => 'Lượt xem',
     'hot_single' => 'PHIM LẺ HOT TRONG TUẦN',
@@ -54,15 +56,18 @@ return [
     'parent_me' => 'Menu cha',
     'category' => 'Thể loại',
     //details page
-    'desc' => 'DESCRIPTION',
-    'review' => 'REVIEWS',
+    'desc' => 'CHI TIẾT',
+    'review' => 'ĐÁNH GIÁ',
     'trailer' => 'TRAILER',
     'watch' => 'Xem Phim',
     'favourite' => 'Thêm vào yêu thích',
+    'remove_favourite' => 'Xóa phim yêu thích',
     'mins' => 'Phút',
     'starring' => 'Diễn viên chính',
     'genre' => 'Thể loại',
     'country' => 'Quốc gia',
+    'add_success' => 'Thêm phim yêu thích thành công!',
+    'remove_success' => 'Xóa phim yêu thích thành công',
     //review tab
     'post_review' => 'Đăng bình luận',
     'please' => 'Vui lòng',
@@ -133,7 +138,8 @@ return [
     'location' => 'Location',
     'list_actor' => 'Danh sách diễn viên',
     'favorite_film' => 'Phim yêu thích',
-    'to_save_film' => 'thêm phim vào yêu thích',
+    'to_save_film' => 'để thêm phim vào yêu thích',
+    'no_film' => 'Chưa có phim yêu thích',
     //Admin-Role
     'role_ma' => 'Quản lý vai trò',
     'rolename' => 'Vai trò',
