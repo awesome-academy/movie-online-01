@@ -9,19 +9,19 @@
                         @foreach ($favoriteFilms as $single)
                         <li>
                             <article class="uk-comment uk-panel uk-panel-space uk-panel-box-secondary">
-                                <a href="{{ route('show', ['id' => $single->id]) }}">
-                                    @if ($single->thumb)
-                                    <img src="{{ asset($single->thumb) }}" alt="Image" class="img_size overlay overlay-sidebar">
+                                <a href="{{ route('show', ['id' => $single['id']]) }}">
+                                    @if ($single['thumb'])
+                                    <img src="{{ asset($single['thumb']) }}" alt="Image" class="img_size overlay overlay-sidebar">
                                     @else
                                     <img src="{{ asset(config('setting.client_image.placeholder') . 'placeholder.png') }}" alt="Image" class="img_size overlay overlay-sidebar">
                                     @endif
                                 </a>
-                                <p>{{ $single->title_en }}</p>
+                                <p>{{ $single['title_en'] }}</p>
                                 <div>
-                                    {{ __('label.view') }}: {{ $single->viewed_day }}
+                                    {{ __('label.view') }}: {{ $single['views'] }}
                                 </div>
                                 <div id="tm-right-section">
-                                    <div class="rateit" data-rateit-value="{{ round($single->votes->avg('point'), 1) }}" data-rateit-readonly="true"></div>
+                                    <div class="rateit" data-rateit-value="{{ round(collect($single['votes'])->avg('point'), 1) }}" data-rateit-readonly="true"></div>
                                 </div>
                             </article>
                         </li>
@@ -43,19 +43,19 @@
                         @foreach ($singleFilmHot as $single)
                         <li>
                             <article class="uk-comment uk-panel uk-panel-space uk-panel-box-secondary">
-                                <a href="{{ route('show', ['id' => $single->id]) }}">
-                                    @if ($single->thumb)
-                                    <img src="{{ asset($single->thumb) }}" alt="Image" class="img_size overlay overlay-sidebar">
+                                <a href="{{ route('show', ['id' => $single['id']]) }}">
+                                    @if ($single['thumb'])
+                                    <img src="{{ asset($single['thumb']) }}" alt="Image" class="img_size overlay overlay-sidebar">
                                     @else
                                     <img src="{{ asset(config('setting.client_image.placeholder') . 'placeholder.png') }}" alt="Image" class="img_size overlay overlay-sidebar">
                                     @endif
                                 </a>
-                                <p>{{ $single->title_en }}</p>
+                                <p>{{ $single['title_en'] }}</p>
                                 <div>
-                                    {{ __('label.view') }}: {{ $single->viewed_day }}
+                                    {{ __('label.view') }}: {{ $single['views'] }}
                                 </div>
                                 <div id="tm-right-section">
-                                    <div class="rateit" data-rateit-value="{{ round($single->votes->avg('point'), 1) }}" data-rateit-readonly="true"></div>
+                                    <div class="rateit" data-rateit-value="{{ round(collect($single['votes'])->avg('point'), 1) }}" data-rateit-readonly="true"></div>
                                 </div>
                             </article>
                         </li>
@@ -73,19 +73,19 @@
                         @foreach ($seriesFilmHot as $series)
                         <li>
                             <article class="uk-comment uk-panel uk-panel-space uk-panel-box-secondary">
-                                <a href="{{ route('show', ['id' => $series->id]) }}">
-                                    @if ($series->thumb)
-                                    <img src="{{ asset($series->thumb) }}" alt="Image" class="img_size overlay overlay-sidebar">
+                                <a href="{{ route('show', ['id' => $series['id']]) }}">
+                                    @if ($series['thumb'])
+                                    <img src="{{ asset($series['thumb']) }}" alt="Image" class="img_size overlay overlay-sidebar">
                                     @else
                                     <img src="{{ asset(config('setting.client_image.placeholder') . 'placeholder.png') }}" alt="Image" class="img_size overlay overlay-sidebar">
                                     @endif
                                 </a>
-                                <p>{{ $series->title_en }}</p>
+                                <p>{{ $series['title_en'] }}</p>
                                 <div>
-                                    {{ __('label.view') }}: {{ $series->viewed_day }}
+                                    {{ __('label.view') }}: {{ $series['views'] }}
                                 </div>
                                 <div id="tm-right-section">
-                                    <div class="rateit" data-rateit-value="{{ round($single->votes->avg('point'), 1) }}" data-rateit-readonly="true"></div>
+                                    <div class="rateit" data-rateit-value="{{ round(collect($series['votes'])->avg('point'), 1) }}" data-rateit-readonly="true"></div>
                                 </div>
                             </article>
                         </li>
