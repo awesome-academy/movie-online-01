@@ -53,15 +53,20 @@ class AppServiceProvider extends ServiceProvider
                 $user_id = Auth::id();
                 $film_save = User::find($user_id)->saves;
                 $favorite = array();
-                foreach ($film_save as $single) {
-                    $singleFilm = Film::where('id', $single->film_id)
-                        ->with('votes')
-                        ->first()
-                        ->toArray();
-                    array_push($favorite, $singleFilm);
-                }
+                if ($film_save->count() > 0) {
+                    foreach ($film_save as $single) {
+                        $singleFilm = Film::where('id', $single->film_id)
+                            ->with('votes')
+                            ->first()
+                            ->toArray();
+                        array_push($favorite, $singleFilm);
+                    }
 
-                $favoriteFilms = $this->mergeFilmWithView($favorite, $views);
+                    $favoriteFilms = $this->mergeFilmWithView($favorite, $views);
+                } else {
+                    $favoriteFilms = [];
+                }
+                
                 $view->with('favoriteFilms', $favoriteFilms);
             }
 

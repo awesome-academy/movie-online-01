@@ -7,7 +7,7 @@
        </a>
    </li>
    <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="{{ route('dashboard') }}">
            <i class="fas fa-tachometer-alt"></i>
            <span>{{ trans('Dashboard') }}</span>
        </a>

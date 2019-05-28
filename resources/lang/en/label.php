@@ -128,7 +128,7 @@ return [
     'banned' => 'banned',
     'nobanned' => 'active',   
     'state' => 'status',  
-    'error' => 'Errors: ',                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+    'error' => 'Errors: ',                                                                              
     //Admin-Actor
     'actor_manage' => 'Actors Management',
     'add_actor' => 'Add new Actor',
@@ -149,4 +149,9 @@ return [
     'confirm' => 'Are you sure to delete?',
     'alert' => 'Please be careful, make sure that no user is relevant to this role before deleting.',
     'add_role' => 'Add new role',
+    'user' => 'User',
+    'films' => 'Films',
+    'view_details' => 'View Details',
+    'view_film' => 'Views of Film',
+    'view_chart' => 'Views Chart',
 ];

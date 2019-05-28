@@ -146,4 +146,9 @@ return [
     'confirm' => 'Bạn có chắc muốn xóa không?',
     'alert' => 'Không thể xóa, role này có chứa rất nhiều người dùng',
     'add_role' => 'Thêm mới',
+    'user' => 'Người Dùng',
+    'films' => 'Phim',
+    'view_details' => 'Chi Tiết',
+    'view_film' => 'Lượt xem phim',
+    'view_chart' => 'Biểu đồ lượt xem',
 ];
