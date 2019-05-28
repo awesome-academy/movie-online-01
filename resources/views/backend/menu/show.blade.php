@@ -10,8 +10,8 @@
         <div class="clearfix"></div>
     </div>
     <div class="well well bs-component">
-        <p>{{ trans('label.menu_name') }}: {!! $menu->name !!}</p>
-        <p>{{ trans('label.menu_slug') }}: {!! $menu->slug !!}</p>
+        <p>{{ trans('label.menu_name') }}: {{ $menu->name }}</p>
+        <p>{{ trans('label.menu_slug') }}: {{ $menu->slug }}</p>
         <br>
         @if (!$menu->parent_id)
         <b>{{ trans('label.child_me') }}: </b>
@@ -19,12 +19,12 @@
         <br>
         <ul>
             @foreach ($dmenus as $dmenu)
-                <li>{!! $dmenu->name !!}</li>
+                <li>{{ $dmenu->name }}</li>
             @endforeach
         </ul>
         @else
             @foreach ($dmenus as $dmenu)
-                <b>{{ trans('label.parent_me') }}: </b> {!! $dmenu->name !!}
+                <b>{{ trans('label.parent_me') }}: </b> {{ $dmenu->name }}
             @endforeach
         @endif
     </div>

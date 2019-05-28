@@ -151,4 +151,9 @@ return [
     'view_details' => 'Chi Tiết',
     'view_film' => 'Lượt xem phim',
     'view_chart' => 'Biểu đồ lượt xem',
+    //Country Management
+    'country_ma' => 'Quản lý quốc gia',
+    'add_country' => 'Thêm quốc gia',
+    'country' => 'Quốc gia',
+    'country_edit' => 'Sửa quốc gia',
 ];

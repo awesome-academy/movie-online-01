@@ -44,6 +44,7 @@ trait GetViewRedis {
                     'views' => 0,
                 ];
             }
+            
         }
         /*
          * Merge values of the duplicate keys
