@@ -4,6 +4,7 @@ namespace App\Traits;
 
 use Illuminate\Support\Facades\Redis;
 use Illuminate\Support\Carbon;
+use App\Film;
 
 trait GetViewRedis {
 
@@ -14,6 +15,16 @@ trait GetViewRedis {
         $week = $carbon->subDay($dayOfWeek);
         $redis = Redis::connection();
         $key = $redis->keys('view:*');
+        
+        if (!$key) {
+            $id = Film::select('id')->get()->toArray();
+            $time = Carbon::now()->toDateString();
+            foreach ($id as $id) {
+                Redis::set('view:film_id_' . $id['id'] . ':' . $time, 0);
+            }
+            $key = $redis->keys('view:*');
+        }
+
         foreach ($key as $value) {
             $date = str_after(str_after($value, 'film_id_'), ':');
             $film_id = str_before(str_after($value, 'film_id_'), ':');
@@ -27,7 +38,12 @@ trait GetViewRedis {
                     'film_id' => $film_id,
                     'views' => $views,
                 ];
-            }  
+            } else {
+                $viewRedis[] = [
+                    'film_id' => $film_id,
+                    'views' => 0,
+                ];
+            }
         }
         /*
          * Merge values of the duplicate keys
@@ -52,7 +68,6 @@ trait GetViewRedis {
     public function mergeFilmWithView($film, $new_view_array)
     {
         foreach ($film as $key_1 => $val_1) {
-            $result[] = $val_1 + ['views' => 0];
             foreach ($new_view_array as $key_2 => $val_2) {
                 if ($val_1['id'] == $val_2['id']) {
                    $result[$key_1] = $val_1 + ['views' => $val_2['views']];

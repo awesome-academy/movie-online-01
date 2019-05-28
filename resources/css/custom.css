@@ -105,3 +105,8 @@
 .uk-dropdown-custom {
     width: auto;
 }
+
+.row-custom {
+    display: flex;
+    justify-content: center;
+}
