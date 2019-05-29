@@ -28,8 +28,8 @@
     <tbody>
         @foreach ($menus as $menu)
             <tr>
-                <th scope="row">{!! $menu->id !!}</th>
-                <td>{!! $menu->name !!}</td>
+                <th scope="row">{{ $menu->id }}</th>
+                <td>{{ $menu->name }}</td>
                 <td>
                     <a class="btn btn-success" href="{{ route('editmenu', ['id' => $menu->id]) }}">{{ trans('label.edit') }}</a>
                     <form method="post" action="{{ route('deletemenu', ['slug' => $menu->slug]) }}" class="pull-left tagForm">
@@ -58,8 +58,8 @@
     <tbody>
         @foreach ($cmenus as $cmenu)
             <tr>
-                <th scope="row">{!! $cmenu->id !!}</th>
-                <td>{!! $cmenu->name !!}</td>
+                <th scope="row">{{ $cmenu->id }}</th>
+                <td>{{ $cmenu->name }}</td>
                 <td>
                     <a class="btn btn-success" href="{{ route('editmenu', ['id' => $cmenu->id]) }}">{{ trans('label.edit') }}</a>
                     <form method="post" action="{{ route('deletemenu', ['slug' => $cmenu->slug]) }}" class="pull-left tagForm tagForm2">

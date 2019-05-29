@@ -154,4 +154,9 @@ return [
     'view_details' => 'View Details',
     'view_film' => 'Views of Film',
     'view_chart' => 'Views Chart',
+    //Country Management
+    'country_ma' => 'Country Management',
+    'add_country' => 'Add Country',
+    'country' => 'Country',
+    'country_edit' => 'Edit Country',
 ];

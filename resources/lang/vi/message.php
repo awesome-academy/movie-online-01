@@ -15,4 +15,5 @@ return [
     'image' => ':attribute phải là ảnh.',
     'digits_between' => ':attribute phải từ :min đến :max chữ số.',
     'min' => ':attribute phai nhiều hơn :min kí tự.',
+    'nocountry' => 'Không có quốc gia nào',
 ];

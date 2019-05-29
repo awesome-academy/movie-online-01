@@ -31,3 +31,5 @@ Route::resource('user', 'UserController');
 Route::resource('actor', 'ActorController');
 //Roles Manage
 Route::resource('role', 'RoleController');
+//Country Manage
+Route::resource('country', 'CountryController');

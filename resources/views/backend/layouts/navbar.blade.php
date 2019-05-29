@@ -53,7 +53,7 @@
             <span>{{ trans('label.film_upload') }}</span></a>
         </li>
     <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="{{ route('country.index') }}">
             <i class="fas fa-fw fa-table"></i>
             <span>{{ trans('label.country_ma') }}</span></a>
         </li>

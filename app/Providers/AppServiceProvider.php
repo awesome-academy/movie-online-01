@@ -6,10 +6,13 @@ use App\Menu;
 use App\Save;
 use App\Traits\GetViewRedis;
 use App\User;
+use App\Country;
 use Auth;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
+use App\Repositories\Interfaces\PostRepositoryInterface;
+use App\Repositories\Eloquents\PostRepository;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -21,7 +24,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->bind(CountryRepositoryInterface::class, CountryfreRepository::class);
     }
     /**
      * Bootstrap any application services.
@@ -53,6 +56,7 @@ class AppServiceProvider extends ServiceProvider
                 $user_id = Auth::id();
                 $film_save = User::find($user_id)->saves;
                 $favorite = array();
+                $favoriteFilms = [];
                 if ($film_save->count() > 0) {
                     foreach ($film_save as $single) {
                         $singleFilm = Film::where('id', $single->film_id)
