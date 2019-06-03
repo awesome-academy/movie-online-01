@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'destination_file' => env('DESTINATION_FILE'),
     'pagination' => 15,
     /*
     |--------------------------------------------------------------------------
@@ -178,6 +179,7 @@ return [
         'Barryvdh\Debugbar\ServiceProvider',
         Yajra\DataTables\DataTablesServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
+        App\Providers\GoogleDriveServiceProvider::class,
     ],
 
     /*

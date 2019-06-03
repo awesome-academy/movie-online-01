@@ -12,12 +12,13 @@ use Illuminate\Support\Str;
 use Auth;
 use App\Http\Requests\FilmRequest;
 use DB;
+use Storage;
 
 class FilmController extends Controller
 {
     public function index()
     {
-    	$films = Film::with('uploadByUser')->with('country')->orderBy('updated_at', 'DESC')->get();
+        $films = Film::with('uploadByUser')->with('country')->orderBy('updated_at', 'DESC')->get();
         $updateLatest = Film::orderBy('updated_at', 'DESC')->firstOrFail();
 
         return view('backend.film.list', compact('films', 'updateLatest'));
@@ -51,11 +52,14 @@ class FilmController extends Controller
             $films->trailer = $trailer;
 
             if ($request->hasFile('img')) {
-                $fileName = uniqid() . '.' . $request->img->extension();
-                $path = $request->img->storeAs('images/films', $fileName);
-                $films->thumb = $path;
+                $extension = $request->img->getClientOriginalExtension();
+                $name_original = $request->img->getClientOriginalName();
+                $file = config('app.destination_file') . $name_original;
+                $fileName = uniqid() . '.' . $extension;
+                Storage::cloud()->put($fileName, fopen($file, 'r'));
+                $films->thumb = $fileName;
             }
-
+            
             $films->save();
 
             // Insert menu_id from Create Film Page to table film_menu with latest film_id
@@ -72,9 +76,8 @@ class FilmController extends Controller
                     $film->actors()->attach($actor);
                 }
             }
-            
-            DB::commit();
 
+            DB::commit();
         } catch (Exception $e) {
             DB::rollBack();
 
@@ -98,7 +101,7 @@ class FilmController extends Controller
         $menus = Menu::where('parent_id', '>', 0)->orderBy('name', 'ASC')->get();
         $actors = Actor::orderBy('name_real', 'ASC')->get();
 
-        return view ('backend.film.edit', compact('film', 'countries', 'menus', 'actors', 'defaultImg'));
+        return view('backend.film.edit', compact('film', 'countries', 'menus', 'actors', 'defaultImg'));
     }
 
     public function update(FilmRequest $request, Film $film)
@@ -141,9 +144,8 @@ class FilmController extends Controller
                     $film->actors()->syncWithoutDetaching($actor);
                 }
             }
-            
-            DB::commit();
 
+            DB::commit();
         } catch (Exception $e) {
             DB::rollBack();
 

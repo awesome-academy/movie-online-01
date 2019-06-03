@@ -27,13 +27,13 @@ Route::get('/savefavoritefilm/{id}', 'HomeController@saveFavoriteFilm')->name('s
 Route::get('/removefavoritefilm/{id}', 'HomeController@removeFavoriteFilm')->name('removefavoritefilm');
 //Profile
 Route::resource('profile', 'ProfileController')
-->except([
-    'index',
-    'store',
-    'create',
-    'destroy',
-    'edit',
-]);
+    ->except([
+        'index',
+        'store',
+        'create',
+        'destroy',
+        'edit',
+    ]);
 //Vote
 Route::post('vote', 'HomeController@vote')->name('vote');
 //actor
