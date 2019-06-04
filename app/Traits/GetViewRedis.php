@@ -12,7 +12,7 @@ trait GetViewRedis {
     {
         $carbon = new Carbon;
         $dayOfWeek = Carbon::now()->dayOfWeek;
-        $week = $carbon->subDay($dayOfWeek);
+        $week = $carbon->subDay($dayOfWeek)->toDateString();
         $redis = Redis::connection();
         $key = $redis->keys('view:*');
         
@@ -43,8 +43,7 @@ trait GetViewRedis {
                     'film_id' => $film_id,
                     'views' => 0,
                 ];
-            }
-            
+            }    
         }
         /*
          * Merge values of the duplicate keys

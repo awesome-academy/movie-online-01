@@ -180,6 +180,8 @@ return [
         Yajra\DataTables\DataTablesServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
         App\Providers\GoogleDriveServiceProvider::class,
+        //Repository Provider
+        App\Providers\RepositoryServiceProvider::class,
     ],
 
     /*

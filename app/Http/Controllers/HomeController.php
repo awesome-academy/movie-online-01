@@ -2,19 +2,25 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Film;
-use App\User;
-use App\Episode;
-use App\Menu;
-use App\Vote;
 use App\Actor;
-use App\Comment;
+use App\Episode;
+use App\Film;
+use App\Menu;
+use App\Repositories\Contracts\FilmRepositoryInterface;
 use App\Save;
+use App\User;
+use App\Vote;
 use Auth;
+use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
+    protected $viewRepository;
+
+    public function __construct(FilmRepositoryInterface $viewRepository)
+    {
+        $this->viewRepository = $viewRepository;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -22,15 +28,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $films = Film::withCount('episodes')->with('votes')->orderBy('created_at', 'DESC')->get();
-        $singleFilm = $films->filter(function ($value) {
-
-            return $value->episodes_count == 1;
-        })->take(config('setting.take_film.homepage'));
-        $seriesFilm = $films->filter(function ($value) {
-
-            return $value->episodes_count > 1;
-        })->take(config('setting.take_film.homepage'));
+        $singleFilm = $this->viewRepository->getSingleFilm();
+        $seriesFilm = $this->viewRepository->getSeriesFilm();
 
         return view('client.homepage', compact('singleFilm', 'seriesFilm'));
     }
@@ -45,7 +44,8 @@ class HomeController extends Controller
 
     public function show($id)
     {
-        $details = Film::with('episodes')->findOrFail($id);
+        $details = $this->viewRepository->find($id);
+        $views = $this->viewRepository->getTotalView($id);
         $favorite = false;
         if (Auth::check()) {
             if (Save::where([
@@ -73,10 +73,7 @@ class HomeController extends Controller
         $actors = $details->actors;
 
         // Get genres of film
-        $genres = Film::findOrFail($id)->menus()
-            ->distinct('menu_id')
-            ->take(config('setting.take_genre.detail_page'))
-            ->get();
+        $genres = $this->viewRepository->getGenreFilm($id);
 
         $genres_id = [];
         foreach ($genres as $genre) {
@@ -84,22 +81,12 @@ class HomeController extends Controller
         }
 
         // Get all film of menu in film details where film_id <> $details->id
-        $filmOfMenu = Film::with([
-            'menus' => function ($query) use ($genres_id) {
-                $query->whereIn('menu_id', $genres_id);
-            }
-        ])
-            ->where('id', '<>', $id)
-            ->take(config('setting.take_film.film_relate'))
-            ->get();
+        $filmOfMenu = $this->viewRepository->getFilmRelate($id, $genres_id);
 
         $countries = $details->country()->get();
-        $comments = Comment::with('user')
-            ->where('film_id', $id)
-            ->orderBy('created_at', 'DESC')
-            ->get();
+        $comments = $this->viewRepository->getComment($id);
 
-        return view('client.detail', compact('details', 'votes', 'actors', 'genres', 'countries', 'comments', 'filmOfMenu', 'slug', 'favorite', 'voteOfUser'));
+        return view('client.detail', compact('details', 'votes', 'actors', 'genres', 'countries', 'comments', 'filmOfMenu', 'slug', 'favorite', 'voteOfUser', 'views'));
     }
 
     //save favorite film
