@@ -1,7 +1,6 @@
 @extends('client.layouts.master')
 @section('player')
-
-<div class="single">
+<div class="single single-custom">
     <section class="trailer">
         <h3>{{ $epBySlug->film->title_vn }}</h3>
         <div class="trailer_frame">
@@ -76,6 +75,5 @@
         </div>
     </li>
 </div>
-
 
 @endsection

@@ -15,9 +15,10 @@
                     
                     <div class="uk-overlay-panel uk-overlay-fade uk-overlay-background  uk-overlay-icon"></div>
                     <a class="uk-position-cover" href="{{ route('show', ['id' => $key->id]) }}"></a>
+                    <span class="ribbon">{{ $key->quality }}</span>
                 </div>
-                <div class="uk-panel" >        
-                    <h5 class="uk-panel-title">{{ $key->title_en }}</h5>
+                <div class="uk-panel">        
+                    <h5 class="uk-panel-title uk-title-custom">{{ $key->title_en }}</h5>
                     <p>
                         <div class="rateit" data-rateit-value="{{ round($key->votes->avg('point'), 1) }}" data-rateit-readonly="true"></div>
                         <span class="uk-float-right">{{ $key->year }}</span>

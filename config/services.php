@@ -51,8 +51,8 @@ return [
     ],
 
     'google' => [
-        'client_id' => env('GOOGLE_APP_ID'),
-        'client_secret' => env('GOOGLE_APP_SECRET'),
+        'client_id' => env('GOOGLE_DRIVE_CLIENT_ID'),
+        'client_secret' => env('GOOGLE_DRIVE_CLIENT_SECRET'),
         'redirect' => env('GOOGLE_APP_CALLBACK_URL'),
     ],
 

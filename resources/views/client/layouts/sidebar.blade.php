@@ -16,7 +16,7 @@
                                     <img src="{{ asset(config('setting.client_image.placeholder') . 'placeholder.png') }}" alt="Image" class="img_size overlay overlay-sidebar">
                                     @endif
                                 </a>
-                                <p>{{ $single['title_en'] }}</p>
+                                <p class="uk-title-custom">{{ $single['title_en'] }}</p>
                                 <div>
                                     {{ __('label.view') }}: {{ $single['views'] }}
                                 </div>
@@ -50,7 +50,7 @@
                                     <img src="{{ asset(config('setting.client_image.placeholder') . 'placeholder.png') }}" alt="Image" class="img_size overlay overlay-sidebar">
                                     @endif
                                 </a>
-                                <p>{{ $single['title_en'] }}</p>
+                                <p class="uk-title-custom">{{ $single['title_en'] }}</p>
                                 <div>
                                     {{ __('label.view') }}: {{ $single['views'] }}
                                 </div>
@@ -80,7 +80,7 @@
                                     <img src="{{ asset(config('setting.client_image.placeholder') . 'placeholder.png') }}" alt="Image" class="img_size overlay overlay-sidebar">
                                     @endif
                                 </a>
-                                <p>{{ $series['title_en'] }}</p>
+                                <p class="uk-title-custom">{{ $series['title_en'] }}</p>
                                 <div>
                                     {{ __('label.view') }}: {{ $series['views'] }}
                                 </div>
