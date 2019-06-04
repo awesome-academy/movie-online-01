@@ -57,9 +57,19 @@ class FilmController extends Controller
                 $file = config('app.destination_file') . $name_original;
                 $fileName = uniqid() . '.' . $extension;
                 Storage::cloud()->put($fileName, fopen($file, 'r'));
-                $films->thumb = $fileName;
+                //get the id_image from google driver
+                $filename = $fileName;
+                $dir = '/';
+                $recursive = false; // Get subdirectories also?
+                $contents = collect(Storage::cloud()->listContents($dir, $recursive));
+                $file = $contents
+                    ->where('type', '=', 'file')
+                    ->where('filename', '=', pathinfo($filename, PATHINFO_FILENAME))
+                    ->where('extension', '=', pathinfo($filename, PATHINFO_EXTENSION))
+                    ->first(); // there can be duplicate file names!
+                $films->thumb = $file['path']; // add id_image from google driver to film table
             }
-            
+
             $films->save();
 
             // Insert menu_id from Create Film Page to table film_menu with latest film_id
@@ -96,7 +106,7 @@ class FilmController extends Controller
 
     public function edit(Film $film)
     {
-        $defaultImg = $film->thumb == null ? asset(config('setting.client_image.placeholder') . 'placeholder.png') : $film->thumb;
+        $defaultImg = $film->thumb == null ? asset(config('setting.client_image.placeholder') . 'placeholder.png') : config('setting.img_path_film') . $film->thumb;
         $countries = Country::all();
         $menus = Menu::where('parent_id', '>', 0)->orderBy('name', 'ASC')->get();
         $actors = Actor::orderBy('name_real', 'ASC')->get();
@@ -123,11 +133,23 @@ class FilmController extends Controller
             $film->trailer = $trailer;
 
             if ($request->hasFile('img')) {
-                $fileName = uniqid() . '.' . $request->img->extension();
-                $path = $request->img->storeAs('images/films', $fileName);
-                $film->thumb = $path;
+                $extension = $request->img->getClientOriginalExtension();
+                $name_original = $request->img->getClientOriginalName();
+                $file = config('app.destination_file') . $name_original;
+                $fileName = uniqid() . '.' . $extension;
+                Storage::cloud()->put($fileName, fopen($file, 'r'));
+                //get the id_image from google driver
+                $filename = $fileName;
+                $dir = '/';
+                $recursive = false; // Get subdirectories also?
+                $contents = collect(Storage::cloud()->listContents($dir, $recursive));
+                $file = $contents
+                    ->where('type', '=', 'file')
+                    ->where('filename', '=', pathinfo($filename, PATHINFO_FILENAME))
+                    ->where('extension', '=', pathinfo($filename, PATHINFO_EXTENSION))
+                    ->first(); // there can be duplicate file names!
+                $film->thumb = $file['path']; // add id_image from google driver to film table
             }
-
             $film->save();
 
             // Insert menu_id from Create Film Page to table film_menu with latest film_id

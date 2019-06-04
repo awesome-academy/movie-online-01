@@ -11,4 +11,5 @@ return [
     'take_genre' => [
         'detail_page' => 4,
     ],
+    'img_path_film' => 'http://drive.google.com/uc?export=view&id=',
 ];

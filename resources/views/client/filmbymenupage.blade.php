@@ -8,7 +8,7 @@
             <div>
                 <div class="uk-overlay uk-overlay-hover">
                     @if ($key->thumb)
-                        <img src="{{ asset($key->thumb) }}" alt="Image" class="img_size overlay overlay-home">
+                        <img src="{{ asset(config('setting.img_path_film')) . $key->thumb }}" alt="Image" class="img_size overlay overlay-home">
                     @else
                         <img src="{{ asset(config('setting.client_image.placeholder') . 'placeholder.png') }}" alt="Image" class="img_size overlay overlay-home">
                     @endif
