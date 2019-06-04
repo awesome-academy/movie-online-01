@@ -18,7 +18,7 @@
                 <div class="uk-panel" >
                     <h5 class="uk-panel-title">{{ $key->title_en }}</h5>
                     <p>
-                        <div class="rateit" data-rateit-value="{{ round($key->votes->avg('point'), 1) }}" data-rateit-readonly="true"></div>
+                        <div class="rateit" data-rateit-value="{{ round(collect($key->votes)->avg('point'), 1) }}" data-rateit-readonly="true"></div>
                         <span class="uk-float-right">{{ $key->year }}</span>
                     </p>
                 </div>
@@ -42,7 +42,7 @@
                 <div class="uk-panel" > 
                     <h5 class="uk-panel-title">{{ $key->title_en }}</h5>
                     <p>
-                        <div class="rateit" data-rateit-value="{{ round($key->votes->avg('point'), 1) }}" data-rateit-readonly="true"></div>
+                        <div class="rateit" data-rateit-value="{{ round(collect($key->votes)->avg('point'), 1) }}" data-rateit-readonly="true"></div>
                         <span class="uk-float-right">{{ $key->year }}</span>
                     </p>
                 </div>

@@ -65,6 +65,7 @@
                                 </li>
                                 <li><i class="uk-icon-clock-o uk-margin-small-right"></i> {{ $details->duration }} {{ __('label.mins') }}</li>
                                 <li>{{ $details->year }}</li>
+                                <li>{{ $views }} {{ __('label.view') }}</li>
                             </ul>
                             <hr>
                             <p class="uk-text-muted uk-h4">{{ $details->description }}</p>

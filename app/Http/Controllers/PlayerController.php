@@ -16,6 +16,7 @@ class PlayerController extends Controller
 {
     public function showEpisodes($id, $slug)
     {
+        $film = Film::findOrFail($id);
         $key = 'viewed_films' . $id;
         $value = md5($id);
         $time = Carbon::now()->toDateString();
@@ -31,7 +32,6 @@ class PlayerController extends Controller
         $epBySlug = Episode::with('film')->where('film_id', $id)->where('slug', $slug)->firstOrFail();
         $comments = Comment::with('user')->where('film_id', $id)->orderBy('created_at', 'DESC')->get();
         $epOfFilm = Film::findOrFail($id)->episodes()->orderBy('slug')->get();
-        $film = Film::findOrFail($id);
 
         return view('client.player', compact('epBySlug', 'epOfFilm', 'comments', 'film', 'views_day'));
     }
