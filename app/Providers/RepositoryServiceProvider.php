@@ -16,7 +16,7 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(
             'App\Repositories\Contracts\FilmRepositoryInterface',
             'App\Repositories\Redis\RedisViewRepository',
-            'App\Repositories\Eloquents\ViewRepository',
+            'App\Repositories\Eloquents\ViewRepository'
         );
     }
 

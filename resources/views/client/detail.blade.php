@@ -11,7 +11,7 @@
         <div class="uk-grid">
             <div class="uk-width-medium-3-10">
                 <div  class="media-cover-custom media-cover">
-                    <img src="{{ asset($details->thumb) }}" alt="Image" class="uk-scrollspy-inview uk-animation-fade">
+                    <img src="{{ asset(config('setting.img_path_film')) . $details->thumb }}" alt="Image" class="uk-scrollspy-inview uk-animation-fade">
                 </div>
                 @if ($slug)
                     <a class="uk-button uk-button-primary uk-button-large uk-width-1-1 uk-margin-top" href="{{ route('episode', ['id' => $details->id, 'slug' => $slug]) }}">
@@ -159,7 +159,7 @@
                             @foreach ($filmOfMenu as $key)
                                 <li>
                                     <a href="{{ route('show', ['id' => $key->id ]) }}">
-                                        <img src="{{ asset($key->thumb) }}" alt="">
+                                        <img src="{{ asset(config('setting.img_path_film')) . $key->thumb }}" alt="">
                                     </a>
                                 </li>
                             @endforeach

@@ -11,7 +11,7 @@
                             <article class="uk-comment uk-panel uk-panel-space uk-panel-box-secondary">
                                 <a href="{{ route('show', ['id' => $single['id']]) }}">
                                     @if ($single['thumb'])
-                                    <img src="{{ asset($single['thumb']) }}" alt="Image" class="img_size overlay overlay-sidebar">
+                                    <img src="{{ asset(config('setting.img_path_film')) . $single['thumb'] }}" alt="Image" class="img_size overlay overlay-sidebar">
                                     @else
                                     <img src="{{ asset(config('setting.client_image.placeholder') . 'placeholder.png') }}" alt="Image" class="img_size overlay overlay-sidebar">
                                     @endif
@@ -45,7 +45,7 @@
                             <article class="uk-comment uk-panel uk-panel-space uk-panel-box-secondary">
                                 <a href="{{ route('show', ['id' => $single['id']]) }}">
                                     @if ($single['thumb'])
-                                    <img src="{{ asset($single['thumb']) }}" alt="Image" class="img_size overlay overlay-sidebar">
+                                    <img src="{{ asset(config('setting.img_path_film')) . $single['thumb'] }}" alt="Image" class="img_size overlay overlay-sidebar">
                                     @else
                                     <img src="{{ asset(config('setting.client_image.placeholder') . 'placeholder.png') }}" alt="Image" class="img_size overlay overlay-sidebar">
                                     @endif
@@ -75,7 +75,7 @@
                             <article class="uk-comment uk-panel uk-panel-space uk-panel-box-secondary">
                                 <a href="{{ route('show', ['id' => $series['id']]) }}">
                                     @if ($series['thumb'])
-                                    <img src="{{ asset($series['thumb']) }}" alt="Image" class="img_size overlay overlay-sidebar">
+                                    <img src="{{ asset(config('setting.img_path_film')) . $series['thumb'] }}" alt="Image" class="img_size overlay overlay-sidebar">
                                     @else
                                     <img src="{{ asset(config('setting.client_image.placeholder') . 'placeholder.png') }}" alt="Image" class="img_size overlay overlay-sidebar">
                                     @endif

@@ -69,7 +69,6 @@ class HomeController extends Controller
         if (request()->ajax()) {
             return response()->json($votes);
         }
-        
         $actors = $details->actors;
 
         // Get genres of film
@@ -116,16 +115,17 @@ class HomeController extends Controller
     public function vote(Request $request)
     {
         if ($request->ajax()) {
-            Vote::updateOrCreate([
-                'user_id' => Auth::id(),
-                'film_id' => $request->film_id,
-            ],
-            [
-                'point' => $request->point,
-                'user_id' => Auth::id(),
-                'film_id' => $request->film_id,
-            ]
-        );
+            Vote::updateOrCreate(
+                [
+                    'user_id' => Auth::id(),
+                    'film_id' => $request->film_id,
+                ],
+                [
+                    'point' => $request->point,
+                    'user_id' => Auth::id(),
+                    'film_id' => $request->film_id,
+                ]
+            );
         }
 
         return response()->json();
@@ -146,5 +146,4 @@ class HomeController extends Controller
 
         return redirect()->back();
     }
-
 }
