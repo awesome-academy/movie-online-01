@@ -37,7 +37,7 @@ class HomeController extends Controller
     public function showFilmByMenu($id)
     {
         $menu = Menu::select('name')->where('id', $id)->firstOrFail();
-        $filmByMenu = Menu::find($id)->films()->orderBy('created_at', 'DESC')->paginate(config('app.pagination'));
+        $filmByMenu = Menu::find($id)->films()->orderBy('created_at', 'DESC')->groupBy('film_id')->paginate(config('app.pagination'));
 
         return view('client.filmbymenupage', compact('menu', 'filmByMenu'));
     }
